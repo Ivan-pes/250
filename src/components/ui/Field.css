@@ -1,0 +1,56 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field__label {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink-70);
+}
+
+.field__control {
+  width: 100%;
+  padding: 12px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 16px;
+  color: var(--ink);
+  transition: border-color 0.25s var(--ease);
+}
+
+.field__control::placeholder { color: var(--ink-45); }
+
+.field__control:hover { border-bottom-color: var(--ink-45); }
+
+.field__control:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.field__control:focus-visible {
+  outline: none;
+  box-shadow: 0 1px 0 var(--accent);
+}
+
+textarea.field__control {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+
+/* поле даты в Safari/Chrome без своего фона и с нормальной высотой */
+input[type='date'].field__control {
+  appearance: none;
+  min-height: 47px;
+}
+
+.field.is-invalid .field__control { border-bottom-color: #b3453a; }
+
+.field__error {
+  font-size: 13px;
+  color: #b3453a;
+}

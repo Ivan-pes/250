@@ -1,25 +1,17 @@
+/* На телефоне шапка НЕ липкая — уезжает вместе со страницей и не съедает
+   верх экрана у аппаратов с «бровью». Липкой она становится с 900px. */
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   background: transparent;
   transition: background-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
-.header.is-solid,
-.header.is-open {
-  background: rgba(250, 248, 245, 0.92);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--line-soft);
-}
-
 .header__bar {
-  position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: clamp(12px, 3vw, 24px);
   min-height: var(--header-h);
 }
 
@@ -61,10 +53,10 @@
 .header__link.is-current { color: var(--ink); }
 .header__link.is-current::after { transform: scaleX(1); }
 
-.header__side { display: flex; align-items: center; gap: 18px; }
+.header__side { display: flex; align-items: center; gap: clamp(8px, 2vw, 18px); }
 .header__phone { display: none; font-size: 14px; color: var(--ink-70); }
 .header__phone:hover { color: var(--ink); }
-.header__cta { display: none; min-height: 42px; padding-inline: 20px; }
+.header__cta { min-height: 42px; padding-inline: 20px; }
 
 /* ── бургер ── */
 
@@ -82,22 +74,30 @@
   width: 22px;
   height: 1.5px;
   background: currentColor;
-  transition: transform 0.28s var(--ease), opacity 0.2s, background-color 0.3s var(--ease);
 }
 
-.header.is-open .burger span:first-child { transform: translateY(3.75px) rotate(45deg); }
-.header.is-open .burger span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+/* на узком экране логотип, кнопка и бургер стоят впритык — ужимаем */
+@media (max-width: 719px) {
+  .header__brand { font-size: 18px; }
+  .header__cta {
+    min-height: 38px;
+    padding-inline: 13px;
+    font-size: 12.5px;
+  }
+  .burger { width: 40px; height: 40px; margin-right: -8px; }
+}
 
 /* ─────────────────────────────────────────────────────────────
    МЕНЮ НА ТЕЛЕФОНЕ
-   Не выпадающий список, а отдельный экран: крупные засечки,
-   номера разделов, контакты и соцсети внизу.
+   Отдельный экран поверх сайта: крупные засечки, номера разделов,
+   контакты и соцсети внизу. Лежит вне .header — иначе `backdrop-filter`
+   шапки схлопнул бы его до её высоты.
    ───────────────────────────────────────────────────────────── */
 
 .drawer {
   position: fixed;
-  inset: var(--header-h) 0 0;
-  z-index: 0;
+  inset: 0;
+  z-index: 150;
   overflow-y: auto;
   overscroll-behavior: contain;
   background: var(--bg);
@@ -106,7 +106,7 @@
   transition: opacity 0.32s var(--ease), visibility 0.32s;
 }
 
-.header.is-open .drawer {
+.drawer.is-open {
   opacity: 1;
   visibility: visible;
 }
@@ -114,11 +114,50 @@
 .drawer__inner {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
   justify-content: space-between;
   min-height: 100%;
-  padding-block: 22px calc(28px + env(safe-area-inset-bottom));
+  padding-block: 0 calc(28px + env(safe-area-inset-bottom));
 }
+
+/* ── верхняя строка меню: имя и крестик ── */
+
+.drawer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: var(--header-h);
+}
+
+.drawer__brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.drawer__close {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  flex-shrink: 0;
+}
+
+.drawer__close span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 1.5px;
+  margin-left: -11px;
+  background: currentColor;
+}
+
+.drawer__close span:first-child { transform: rotate(45deg); }
+.drawer__close span:last-child { transform: rotate(-45deg); }
+
+/* ── разделы ── */
 
 .drawer__nav { display: flex; flex-direction: column; }
 
@@ -178,8 +217,8 @@
     transform: translateY(14px);
   }
 
-  .header.is-open .drawer__link,
-  .header.is-open .drawer__foot {
+  .drawer.is-open .drawer__link,
+  .drawer.is-open .drawer__foot {
     opacity: 1;
     transform: none;
     transition:
@@ -192,9 +231,22 @@
   .header__phone { display: block; }
 }
 
+/* с планшета шапка снова липкая и подкрашивается при прокрутке */
+@media (min-width: 900px) {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+
+  .header.is-solid {
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 var(--line-soft);
+  }
+}
+
 @media (min-width: 1000px) {
   .header__nav { display: flex; }
-  .header__cta { display: inline-flex; }
   .header__phone { display: none; }
   .burger { display: none; }
   .drawer { display: none; }

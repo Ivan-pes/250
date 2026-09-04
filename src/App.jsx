@@ -1,6 +1,5 @@
 import Header from '@/components/layout/Header.jsx';
 import Footer from '@/components/layout/Footer.jsx';
-import MobileBar from '@/components/layout/MobileBar.jsx';
 import Intro from '@/components/layout/Intro.jsx';
 import Ornament from '@/components/ui/Ornament.jsx';
 import {
@@ -52,8 +51,6 @@ export default function App() {
       </main>
 
       <Footer />
-
-      <MobileBar />
     </>
   );
 }

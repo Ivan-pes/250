@@ -10,7 +10,13 @@ import { cx } from '@/lib/cx.js';
 const NAV_IDS = nav.map((item) => item.id);
 const telHref = `tel:${brand.phone.replace(/[^\d+]/g, '')}`;
 
-/** Шапка: логотип, меню с подсветкой текущей секции, кнопка брони. */
+/**
+ * Шапка: логотип, меню с подсветкой текущей секции, кнопка «Связаться».
+ *
+ * Выдвижное меню лежит РЯДОМ с шапкой, а не внутри неё. Это важно:
+ * у шапки есть `backdrop-filter`, а он делает элемент точкой отсчёта для
+ * `position: fixed` внутри — меню схлопывалось до высоты шапки и не открывалось.
+ */
 export default function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrolled(24);
@@ -30,45 +36,65 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className={cx('header', (scrolled || open) && 'is-solid', open && 'is-open')}>
-      <div className="header__bar container">
-        <a className="header__brand" href="#top" onClick={() => setOpen(false)}>
-          {brand.name}
-        </a>
+    <>
+      <header className={cx('header', scrolled && 'is-solid', open && 'is-open')}>
+        <div className="header__bar container">
+          <a className="header__brand" href="#top" onClick={() => setOpen(false)}>
+            {brand.name}
+          </a>
 
-        <nav className="header__nav" aria-label="Разделы сайта">
-          {nav.map((item) => (
-            <a
-              key={item.id}
-              className={cx('header__link', active === item.id && 'is-current')}
-              href={`#${item.id}`}
-              aria-current={active === item.id ? 'true' : undefined}
+          <nav className="header__nav" aria-label="Разделы сайта">
+            {nav.map((item) => (
+              <a
+                key={item.id}
+                className={cx('header__link', active === item.id && 'is-current')}
+                href={`#${item.id}`}
+                aria-current={active === item.id ? 'true' : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="header__side">
+            <a className="header__phone" href={telHref}>{brand.phone}</a>
+            <a className="btn btn--primary header__cta" href="#contact">Связаться</a>
+
+            <button
+              className="burger"
+              type="button"
+              aria-label="Открыть меню"
+              aria-expanded={open}
+              aria-controls="drawer"
+              onClick={() => setOpen(true)}
             >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="header__side">
-          <a className="header__phone" href={telHref}>{brand.phone}</a>
-          <a className="btn btn--primary header__cta" href="#contact">Связаться</a>
-
-          <button
-            className="burger"
-            type="button"
-            aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
-            aria-expanded={open}
-            aria-controls="drawer"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span />
-            <span />
-          </button>
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div className="drawer" id="drawer" inert={open ? undefined : true}>
+      <div
+        className={cx('drawer', open && 'is-open')}
+        id="drawer"
+        inert={open ? undefined : true}
+      >
         <div className="drawer__inner container">
+          <div className="drawer__top">
+            <span className="drawer__brand">{brand.name}</span>
+
+            <button
+              className="drawer__close"
+              type="button"
+              aria-label="Закрыть меню"
+              onClick={() => setOpen(false)}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
+
           <nav className="drawer__nav" aria-label="Разделы сайта">
             {nav.map((item, i) => (
               <a
@@ -113,6 +139,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

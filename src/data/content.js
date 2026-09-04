@@ -43,8 +43,7 @@ export const socials = [
 export const hero = {
   title: 'Ваш день таким, каким он был был незабываемым',
   lead:
-    'Репортаж без постановок и команды «а теперь сделайте вид, что смеётесь». ' +
-    ' где в семь утра туман в Анаге, где солнце садится за Тей.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   actions: [
     { label: 'Портфолио', href: '#portfolio', primary: true },
   ],
@@ -64,12 +63,9 @@ export const hero = {
 export const about = {
   title: 'Восемь лет снимаю свадьбы, шесть из них — на Тенерифе. И до сих пор помню каждую.',
   text: [
-    'Начинал вторым фотографом в 2018-м, с 2020-го работаю один и беру не больше двадцати свадеб в год: ' +
-      'так на каждую пару остаётся время до и после съёмки, а не только сам день.',
-    'Остров знаю наизусть: где в семь утра туман в Анаге, где солнце садится за Тейде ровно в кадр и на каком ' +
-      'пляже в субботу не будет двух сотен человек. Это экономит вам половину дня беготни.',
-    'На площадке меня почти не видно. Я не строю гостей, не прошу переснять первый поцелуй и не забираю ' +
-      'вас на два часа фотосессии — снимаю то, что и так происходит, и подсказываю только там, где без этого никак.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
   ],
   signature: 'Хуй',
   photo: {
@@ -87,14 +83,12 @@ export const about = {
 export const packages = {
   title: 'Съёмка, собранная под ваш день',
   lead:
-    'Три формата — от короткой церемонии до полного дня. Точную цену считаю после того, '
-    + 'как узнаю дату, площадку и тайминг: доплат в день съёмки не бывает.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
   items: [
     {
       icon: 'camera',
       title: 'Полный день: от сборов до финала',
-      text: 'Приезжаю за полчаса до сборов и уезжаю после последнего танца. Две камеры, '
-        + 'запасные карты и батареи. Ничего не пропускаем, и вам не нужно смотреть на часы.',
+      text: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.',
     },
     {
       icon: 'church',
@@ -115,7 +109,7 @@ export const packages = {
 
 export const portfolio = {
   title: 'Избранные кадры',
-  lead: 'Съёмки за последние два года. Полные галереи показываю на встрече — целиком, без выборочных «лучших».',
+  lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   categories: [
     { id: 'all', label: 'Все' },
     { id: 'morning', label: 'Сборы' },
@@ -151,8 +145,7 @@ export const reviews = {
   title: 'Что говорят пары',
   items: [
     {
-      text: 'Мы боялись камеры и весь день ждали, когда нас начнут расставлять. Так и не начали. ' +
-        'В итоге на фото мы настоящие, а не с натянутыми улыбками.',
+      text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.',
       author: 'Катя и Дима',
       meta: 'Июнь 2025, Коста-Адехе',
     },
@@ -196,7 +189,7 @@ export const faq = {
   items: [
     {
       q: 'Сколько это стоит?',
-      a: 'Стоимость зависит от даты, количества часов и того, нужен ли второй фотограф. Полный прайс присылаю в ответ на заявку — обычно в тот же день, вместе с ответом о свободной дате.',
+      a: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.',
     },
     {
       q: 'За сколько нужно бронировать дату?',
@@ -229,7 +222,7 @@ export const faq = {
 
 export const contact = {
   title: 'Связаться',
-  lead: 'Отвечу в течение суток и сразу скажу, свободна ли дата. Ни к чему не обязывает.',
+  lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
   fields: [
     { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Аня и Паша', autoComplete: 'name' },
     { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+7 900 000-00-00', inputMode: 'tel', autoComplete: 'tel' },

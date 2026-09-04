@@ -4,7 +4,14 @@
   z-index: 300;
   display: grid;
   place-items: center;
+  /* lvh — высота экрана с убранными панелями браузера: во встроенном
+     браузере Telegram панель то появляется, то исчезает, и без этого
+     снизу вылезала полоска сайта из-под заставки */
+  min-height: 100lvh;
   overflow: hidden;
+  /* жест по заставке не должен прокручивать страницу под ней */
+  touch-action: none;
+  overscroll-behavior: none;
   background: #14120f;
   color: var(--bg);
   animation: intro-in 0.6s var(--ease);

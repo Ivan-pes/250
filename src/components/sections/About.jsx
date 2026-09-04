@@ -11,7 +11,7 @@ export default function About() {
       <div className="about__inner">
         <Reveal as="figure" className="about__media">
           <div className="photo-frame">
-            <Photo {...about.photo} sizes="(min-width: 900px) 480px, 100vw" />
+            <Photo {...about.photo} priority sizes="(min-width: 900px) 480px, 100vw" />
           </div>
         </Reveal>
 

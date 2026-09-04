@@ -68,6 +68,8 @@ export default function Portfolio() {
                   {...item}
                   alt={item.title}
                   tone={i}
+                  /* первый ряд грузим сразу — иначе он «дорисовывается» на глазах */
+                  priority={i < 3}
                   sizes="(min-width: 1200px) 380px, (min-width: 1000px) 32vw, (min-width: 620px) 48vw, 100vw"
                 />
               </span>

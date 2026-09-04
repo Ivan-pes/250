@@ -102,11 +102,11 @@ export default function Contact() {
               </dd>
             </div>
             <div>
-              <dt>Email</dt>
+              <dt>Почта</dt>
               <dd><a className="link" href={`mailto:${brand.email}`}>{brand.email}</a></dd>
             </div>
             <div>
-              <dt>Telephonum</dt>
+              <dt>Телефон</dt>
               <dd><a className="link" href={telHref}>{brand.phone}</a></dd>
             </div>
           </dl>

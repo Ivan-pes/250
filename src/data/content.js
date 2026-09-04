@@ -3,8 +3,8 @@
  *
  * Меняете здесь — меняется на странице. Компоненты трогать не нужно.
  *
- * СЕЙЧАС ВЕСЬ ТЕКСТ — РЫБА (Lorem ipsum). Настоящими остались только имя,
- * подпись под ним и контакты: почта, телефон, Instagram.
+ * СЕЙЧАС ЗАГОЛОВКИ И ПОДПИСИ — НАСТОЯЩИЕ, А ДЛИННЫЕ ТЕКСТЫ — РЫБА
+ * (Lorem ipsum): так видно структуру страницы, но ничего не надо вычитывать.
  *
  * У фотографий поле `src`. Сейчас там временные снимки из /public/images —
  * поставьте вместо них свои: положите файл в ту же папку и впишите
@@ -25,16 +25,16 @@ export const brand = {
   phone: '+34 612 345 678',
   instagram: '@gorbaty.photo',
   instagramUrl: 'https://instagram.com/gorbaty.photo',
-  hours: 'Lorem ipsum dolor sit amet.',
+  hours: 'Всегда отвечу',
 };
 
 /** Пункты меню. `id` — это id секции на странице. */
 export const nav = [
-  { id: 'about', label: 'Lorem' },
-  { id: 'packages', label: 'Ipsum' },
-  { id: 'portfolio', label: 'Dolor' },
-  { id: 'reviews', label: 'Amet' },
-  { id: 'faq', label: 'Elit' },
+  { id: 'about', label: 'Обо мне' },
+  { id: 'packages', label: 'Что входит' },
+  { id: 'portfolio', label: 'Портфолио' },
+  { id: 'reviews', label: 'Отзывы' },
+  { id: 'faq', label: 'Вопросы' },
 ];
 
 export const socials = [
@@ -44,16 +44,16 @@ export const socials = [
 /* ─────────────────────────  ПЕРВЫЙ ЭКРАН  ───────────────────────── */
 
 export const hero = {
-  title: 'Lorem ipsum dolor sit amet consectetur',
+  title: 'Ваш день, как он был',
   lead:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
     + 'tempor incididunt ut labore et dolore magna aliqua.',
   actions: [
-    { label: 'Dolor sit', href: '#portfolio', primary: true },
+    { label: 'Портфолио', href: '#portfolio', primary: true },
   ],
   facts: [
-    { value: 'VI', label: 'lorem ipsum dolor sit' },
-    { value: 'I–II', label: 'consectetur adipiscing elit' },
+    { value: '6 лет', label: 'снимаю свадьбы' },
+    { value: '3–5 недель', label: 'до готовой галереи' },
   ],
   photo: {
     src: '/images/hero.jpg',
@@ -65,7 +65,7 @@ export const hero = {
 /* ─────────────────────────  ОБО МНЕ  ───────────────────────── */
 
 export const about = {
-  title: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
+  title: 'Обо мне',
   text: [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
       + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
@@ -77,7 +77,7 @@ export const about = {
       + 'laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi '
       + 'architecto beatae vitae dicta sunt explicabo.',
   ],
-  signature: 'Lorem',
+  signature: 'Хуй',
   photo: {
     src: '/images/about.jpg',
     ratio: RATIO.portrait,
@@ -91,26 +91,26 @@ export const about = {
    ──────────────────────────────────────────────────────────────── */
 
 export const packages = {
-  title: 'Neque porro quisquam est qui dolorem',
+  title: 'Что входит',
   lead:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
   items: [
     {
       icon: 'camera',
-      title: 'Lorem ipsum: dolor sit amet',
+      title: 'Полный день',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
         + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.',
     },
     {
       icon: 'church',
-      title: 'Consectetur: adipiscing elit',
+      title: 'Церемония',
       text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed '
         + 'quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     },
     {
       icon: 'glasses',
-      title: 'Tempor: incididunt ut labore',
+      title: 'Вечер',
       text: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, '
         + 'adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.',
     },
@@ -120,78 +120,78 @@ export const packages = {
 /* ─────────────────────────  ПОРТФОЛИО  ───────────────────────── */
 
 export const portfolio = {
-  title: 'Ut enim ad minim veniam',
+  title: 'Избранные кадры',
   lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     + 'incididunt ut labore et dolore magna aliqua.',
   categories: [
-    { id: 'all', label: 'Omnia' },
-    { id: 'morning', label: 'Lorem' },
-    { id: 'ceremony', label: 'Ipsum' },
-    { id: 'walk', label: 'Dolor' },
-    { id: 'party', label: 'Amet' },
-    { id: 'love', label: 'Elit' },
+    { id: 'all', label: 'Все' },
+    { id: 'morning', label: 'Сборы' },
+    { id: 'ceremony', label: 'Церемония' },
+    { id: 'walk', label: 'Прогулка' },
+    { id: 'party', label: 'Вечер' },
+    { id: 'love', label: 'Love story' },
   ],
   /** Первые 6 показываются сразу, остальные — по кнопке. */
   items: [
-    { title: 'Lorem ipsum', place: 'Dolor, 2025', cat: 'morning', src: '/images/01-morning.jpg', ratio: RATIO.portrait },
-    { title: 'Dolor sit amet', place: 'Amet, 2025', cat: 'ceremony', src: '/images/02-rings.jpg', ratio: RATIO.landscape },
-    { title: 'Consectetur elit', place: 'Elit, 2025', cat: 'ceremony', src: '/images/03-shore.jpg', ratio: RATIO.portrait },
-    { title: 'Tempor incididunt', place: 'Labore, 2025', cat: 'party', src: '/images/04-dance.jpg', ratio: RATIO.portrait },
-    { title: 'Magna aliqua', place: 'Veniam, 2024', cat: 'walk', src: '/images/05-sunset.jpg', ratio: RATIO.landscape },
-    { title: 'Nostrud exercitation', place: 'Ullamco, 2024', cat: 'morning', src: '/images/06-dress.jpg', ratio: RATIO.portrait },
-    { title: 'Laboris nisi', place: 'Aliquip, 2024', cat: 'ceremony', src: '/images/07-vows.jpg', ratio: RATIO.portrait },
-    { title: 'Commodo consequat', place: 'Irure, 2024', cat: 'love', src: '/images/08-laugh.jpg', ratio: RATIO.landscape },
-    { title: 'Voluptate velit', place: 'Cillum, 2024', cat: 'party', src: '/images/09-sparks.jpg', ratio: RATIO.landscape },
-    { title: 'Fugiat nulla', place: 'Pariatur, 2024', cat: 'morning', src: '/images/10-mirror.jpg', ratio: RATIO.portrait },
-    { title: 'Excepteur sint', place: 'Occaecat, 2023', cat: 'walk', src: '/images/11-anaga.jpg', ratio: RATIO.landscape },
-    { title: 'Cupidatat proident', place: 'Culpa, 2023', cat: 'party', src: '/images/12-lastdance.jpg', ratio: RATIO.landscape },
-    { title: 'Officia deserunt', place: 'Mollit, 2023', cat: 'love', src: '/images/13-arch.jpg', ratio: RATIO.portrait },
-    { title: 'Anim id est', place: 'Laborum, 2023', cat: 'love', src: '/images/14-dusk.jpg', ratio: RATIO.portrait },
+    { title: 'Утро в Ла-Оротаве', place: 'Ла-Оротава, 2025', cat: 'morning', src: '/images/01-morning.jpg', ratio: RATIO.portrait },
+    { title: 'Кольца и тишина', place: 'Гарачико, 2025', cat: 'ceremony', src: '/images/02-rings.jpg', ratio: RATIO.landscape },
+    { title: 'Церемония у воды', place: 'Лос-Гигантес, 2025', cat: 'ceremony', src: '/images/03-shore.jpg', ratio: RATIO.portrait },
+    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'party', src: '/images/04-dance.jpg', ratio: RATIO.portrait },
+    { title: 'Закат за Тейде', place: 'Тейде, 2024', cat: 'walk', src: '/images/05-sunset.jpg', ratio: RATIO.landscape },
+    { title: 'Платье у окна', place: 'Ла-Лагуна, 2024', cat: 'morning', src: '/images/06-dress.jpg', ratio: RATIO.portrait },
+    { title: 'Клятвы', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'ceremony', src: '/images/07-vows.jpg', ratio: RATIO.portrait },
+    { title: 'Смех между кадрами', place: 'Санта-Крус, 2024', cat: 'love', src: '/images/08-laugh.jpg', ratio: RATIO.landscape },
+    { title: 'Бенгальские огни', place: 'Санта-Крус, 2024', cat: 'party', src: '/images/09-sparks.jpg', ratio: RATIO.landscape },
+    { title: 'Перед выходом', place: 'Эль-Медано, 2024', cat: 'morning', src: '/images/10-mirror.jpg', ratio: RATIO.portrait },
+    { title: 'Он и она, Анага', place: 'Анага, 2023', cat: 'walk', src: '/images/11-anaga.jpg', ratio: RATIO.landscape },
+    { title: 'Последний танец', place: 'Ла-Гомера, 2023', cat: 'party', src: '/images/12-lastdance.jpg', ratio: RATIO.landscape },
+    { title: 'Под аркой', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/13-arch.jpg', ratio: RATIO.portrait },
+    { title: 'Сумерки', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/14-dusk.jpg', ratio: RATIO.portrait },
   ],
-  moreLabel: 'Lorem amplius',
+  moreLabel: 'Показать ещё',
   visible: 6,
 };
 
 /* ─────────────────────────  ОТЗЫВЫ  ───────────────────────── */
 
 export const reviews = {
-  title: 'Quis autem vel eum iure',
+  title: 'Что говорят пары',
   items: [
     {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
         + 'incididunt ut labore et dolore magna aliqua veniam.',
-      author: 'Lorem et Ipsum',
-      meta: 'Iunius 2025, Dolor',
+      author: 'Катя и Дима',
+      meta: 'Июнь 2025, Коста-Адехе',
     },
     {
       text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut '
         + 'aliquip ex ea commodo consequat duis aute irure.',
-      author: 'Dolor et Amet',
-      meta: 'September 2024, Elit',
+      author: 'Марина и Сергей',
+      meta: 'Сентябрь 2024, Гарачико',
     },
     {
       text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu '
         + 'fugiat nulla pariatur excepteur sint occaecat.',
-      author: 'Consectetur et Elit',
-      meta: 'Augustus 2024, Labore',
+      author: 'Аня и Паша',
+      meta: 'Август 2024, Ла-Оротава',
     },
     {
       text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia '
         + 'deserunt mollit anim id est laborum sed perspiciatis.',
-      author: 'Tempor et Labore',
-      meta: 'Martius 2024, Veniam',
+      author: 'Лена и Артём',
+      meta: 'Март 2024, Пуэрто-де-ла-Крус',
     },
     {
       text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium '
         + 'doloremque laudantium totam rem aperiam eaque.',
-      author: 'Magna et Aliqua',
-      meta: 'October 2023, Ullamco',
+      author: 'Оля и Никита',
+      meta: 'Октябрь 2023, Ла-Лагуна',
     },
     {
       text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed '
         + 'quia consequuntur magni dolores eos.',
-      author: 'Nostrud et Laboris',
-      meta: 'Iulius 2023, Aliquip',
+      author: 'Вера и Максим',
+      meta: 'Июль 2023, Ла-Гомера',
     },
   ],
 };
@@ -199,42 +199,42 @@ export const reviews = {
 /* ─────────────────────────  ВОПРОСЫ  ───────────────────────── */
 
 export const faq = {
-  title: 'Quis nostrud exercitation ullamco',
+  title: 'Вопросы',
   items: [
     {
-      q: 'Lorem ipsum dolor sit amet?',
+      q: 'Сколько это стоит?',
       a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
         + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
         + 'exercitation ullamco laboris.',
     },
     {
-      q: 'Consectetur adipiscing elit?',
+      q: 'За сколько бронировать дату?',
       a: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu '
         + 'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa '
         + 'qui officia deserunt.',
     },
     {
-      q: 'Sed do eiusmod tempor incididunt?',
+      q: 'Мы не умеем позировать?',
       a: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium '
         + 'doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.',
     },
     {
-      q: 'Ut labore et dolore magna aliqua?',
+      q: 'Когда будут фотографии?',
       a: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia '
         + 'consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     },
     {
-      q: 'Ut enim ad minim veniam?',
+      q: 'Отдаёте ли исходники?',
       a: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, '
         + 'adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.',
     },
     {
-      q: 'Quis nostrud exercitation ullamco?',
+      q: 'А если дождь или ветер?',
       a: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium '
         + 'voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.',
     },
     {
-      q: 'Nisi ut aliquip ex ea commodo?',
+      q: 'Снимаете на других островах?',
       a: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe '
         + 'eveniet ut et voluptates repudiandae sint et molestiae non recusandae.',
     },
@@ -244,18 +244,18 @@ export const faq = {
 /* ─────────────────────────  КОНТАКТЫ  ───────────────────────── */
 
 export const contact = {
-  title: 'Lorem ipsum',
+  title: 'Связаться',
   lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     + 'incididunt ut labore.',
   fields: [
-    { name: 'name', label: 'Lorem ipsum', type: 'text', required: true, placeholder: 'Dolor sit amet', autoComplete: 'name' },
-    { name: 'contact', label: 'Consectetur adipiscing', type: 'text', required: true, placeholder: '+7 900 000-00-00', inputMode: 'tel', autoComplete: 'tel' },
-    { name: 'message', label: 'Sed do eiusmod tempor', type: 'textarea', required: false, placeholder: 'Incididunt ut labore et dolore magna aliqua', rows: 3 },
+    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Dolor sit amet', autoComplete: 'name' },
+    { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+7 900 000-00-00', inputMode: 'tel', autoComplete: 'tel' },
+    { name: 'message', label: 'Пара слов о дне', type: 'textarea', required: false, placeholder: 'Incididunt ut labore et dolore magna aliqua', rows: 3 },
   ],
-  submit: 'Mittere',
-  sending: 'Lorem…',
+  submit: 'Отправить',
+  sending: 'Отправляю…',
   success: {
-    title: 'Lorem ipsum dolor',
+    title: 'Заявка ушла',
     text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad '
       + 'minim veniam.',
   },
@@ -264,6 +264,6 @@ export const contact = {
 /* ─────────────────────────  ФУТЕР  ───────────────────────── */
 
 export const footer = {
-  line: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  legal: 'Lorem ipsum',
+  line: 'Свадебная фотография на Тенерифе',
+  legal: 'Политика конфиденциальности',
 };

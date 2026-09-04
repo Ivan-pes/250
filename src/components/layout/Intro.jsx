@@ -6,8 +6,9 @@ import { useBodyLock } from '@/hooks/useBodyLock.js';
 import { cx } from '@/lib/cx.js';
 
 /**
- * Заставка перед сайтом: во весь экран видео (или кадр), имя и одна кнопка.
- * По нажатию заставка растворяется и открывается страница.
+ * Заставка перед сайтом: во весь экран видео (или кадр) и надпись
+ * «Продолжить» чуть ниже середины. По нажатию на неё заставка
+ * растворяется и открывается страница.
  *
  * ВИДЕО. Положите файл в public/video/intro.mp4 — и он появится здесь сам.
  * Пока файла нет, фоном стоит фотография с медленным наездом: заставка
@@ -82,12 +83,11 @@ export default function Intro() {
       </div>
 
       <div className="intro__body">
-        <p className="intro__name">{brand.name}</p>
-        <p className="intro__role">{brand.role} · {brand.city}</p>
-
-        <button className="btn btn--primary intro__enter" type="button" onClick={close}>
-          Войти
+        <button className="intro__enter" type="button" onClick={close}>
+          Продолжить
         </button>
+
+        <p className="intro__role">{brand.role} · {brand.city}</p>
       </div>
     </div>
   );

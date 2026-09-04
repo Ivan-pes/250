@@ -14,14 +14,14 @@ export default function Footer() {
         </div>
 
         <nav className="footer__col" aria-label="Разделы сайта">
-          <h2 className="footer__title">Разделы</h2>
+          <h2 className="footer__title">Lorem</h2>
           {nav.map((item) => (
             <a key={item.id} href={`#${item.id}`}>{item.label}</a>
           ))}
         </nav>
 
         <div className="footer__col">
-          <h2 className="footer__title">Контакты</h2>
+          <h2 className="footer__title">Ipsum</h2>
           <a href={`mailto:${brand.email}`}>{brand.email}</a>
           <a href={telHref}>{brand.phone}</a>
           <a href={brand.instagramUrl} target="_blank" rel="noreferrer noopener">
@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <nav className="footer__col" aria-label="Социальные сети">
-          <h2 className="footer__title">Соцсети</h2>
+          <h2 className="footer__title">Dolor</h2>
           {socials.map((item) => (
             <a key={item.label} href={item.href} target="_blank" rel="noreferrer noopener">
               {item.label}
@@ -41,7 +41,7 @@ export default function Footer() {
 
       <div className="container footer__base">
         <p>© {year} {brand.name}</p>
-        <a href="#top">Наверх ↑</a>
+        <a href="#top">Sursum ↑</a>
       </div>
     </footer>
   );

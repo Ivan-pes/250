@@ -58,7 +58,7 @@ export default function Header() {
 
           <div className="header__side">
             <a className="header__phone" href={telHref}>{brand.phone}</a>
-            <a className="btn btn--primary header__cta" href="#contact">Связаться</a>
+            <a className="btn btn--primary header__cta" href="#contact">Contactus</a>
 
             <button
               className="burger"
@@ -115,16 +115,16 @@ export default function Header() {
             style={{ '--drawer-delay': `${60 + nav.length * 45}ms` }}
           >
             <a className="btn btn--primary drawer__cta" href="#contact" onClick={() => setOpen(false)}>
-              Связаться
+              Contactus
             </a>
 
             <dl className="drawer__contacts">
               <div>
-                <dt>Телефон</dt>
+                <dt>Telephonum</dt>
                 <dd><a href={telHref}>{brand.phone}</a></dd>
               </div>
               <div>
-                <dt>Почта</dt>
+                <dt>Email</dt>
                 <dd><a href={`mailto:${brand.email}`}>{brand.email}</a></dd>
               </div>
             </dl>

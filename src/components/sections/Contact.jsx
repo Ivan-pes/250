@@ -45,7 +45,7 @@ export default function Contact() {
       setStatus('done');
     } catch {
       setStatus('idle');
-      setErrors({ form: 'Не удалось отправить. Позвоните или напишите на почту — так точно дойдёт.' });
+      setErrors({ form: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' });
     }
   };
 
@@ -84,8 +84,8 @@ export default function Contact() {
               </button>
 
               <p className="contact__hint">
-                Нажимая кнопку, вы соглашаетесь на обработку своих данных.
-                Я использую их только чтобы ответить.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore.
               </p>
             </form>
           )}
@@ -102,11 +102,11 @@ export default function Contact() {
               </dd>
             </div>
             <div>
-              <dt>Почта</dt>
+              <dt>Email</dt>
               <dd><a className="link" href={`mailto:${brand.email}`}>{brand.email}</a></dd>
             </div>
             <div>
-              <dt>Телефон</dt>
+              <dt>Telephonum</dt>
               <dd><a className="link" href={telHref}>{brand.phone}</a></dd>
             </div>
           </dl>

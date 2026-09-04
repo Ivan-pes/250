@@ -1,16 +1,19 @@
+/* ── фильтры ── */
+
 .portfolio__filters {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 28px;
 }
 
 .chip {
-  padding: 8px 16px;
+  flex: 0 0 auto;
+  padding: 9px 17px;
   border: 1px solid var(--line);
   border-radius: 999px;
   font-size: 13px;
   color: var(--ink-70);
+  white-space: nowrap;
   transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease),
     color 0.2s var(--ease);
 }
@@ -23,15 +26,11 @@
   color: var(--bg);
 }
 
-/* кладка колонками: кадры разной высоты складываются без дыр */
-.gallery {
-  columns: 1;
-  column-gap: 18px;
-}
+/* ── сетка ── */
 
-.gallery__cell {
-  break-inside: avoid;
-  margin-bottom: 18px;
+.gallery {
+  display: grid;
+  gap: 22px;
 }
 
 .card {
@@ -74,8 +73,59 @@
   margin-top: 32px;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   ТЕЛЕФОН
+   Фильтры — лента, которую листают пальцем, а не три ряда кнопок.
+   Каждый третий кадр выходит за поля до края экрана: получается
+   ритм разворота, а не одинаковая колонка картинок.
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 619px) {
+  .portfolio__filters {
+    /* лента идёт от края до края, а не обрывается по полям */
+    margin-inline: calc(var(--pad) * -1);
+    padding-inline: var(--pad);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* правый край растворяется — видно, что список продолжается */
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+
+  .portfolio__filters::-webkit-scrollbar { display: none; }
+
+  .chip { scroll-snap-align: start; }
+
+  .gallery { gap: 30px; }
+
+  .gallery__cell:nth-child(3n + 1) {
+    margin-inline: calc(var(--pad) * -1);
+  }
+
+  .gallery__cell:nth-child(3n + 1) .card__frame { border-radius: 0; }
+  .gallery__cell:nth-child(3n + 1) .card__caption { padding-inline: var(--pad); }
+
+  .card__title { font-size: 20px; }
+
+  .portfolio__more { margin-top: 34px; }
+  .portfolio__more .btn { width: 100%; }
+}
+
+/* ── кладка колонками на широких экранах ── */
+
 @media (min-width: 620px) {
-  .gallery { columns: 2; }
+  .gallery {
+    display: block;
+    columns: 2;
+    column-gap: 18px;
+  }
+
+  .gallery__cell {
+    break-inside: avoid;
+    margin-bottom: 18px;
+  }
 }
 
 @media (min-width: 1000px) {

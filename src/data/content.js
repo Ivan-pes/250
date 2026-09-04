@@ -2,8 +2,11 @@
  * ЕДИНСТВЕННОЕ МЕСТО, ГДЕ ЖИВЁТ ТЕКСТ САЙТА.
  *
  * Меняете здесь — меняется на странице. Компоненты трогать не нужно.
- * У фотографий поле `src`: пока там null — стоит серая заглушка;
- * поставьте '/images/имя-файла.jpg' (файл кладите в /public/images) — появится кадр.
+ *
+ * У фотографий поле `src`. Сейчас там временные снимки из /public/images —
+ * поставьте вместо них свои: положите файл в ту же папку и впишите
+ * '/images/имя-файла.jpg'. Если поставить null, на месте кадра будет серая
+ * заглушка нужной пропорции — вёрстка не поедет.
  */
 
 import { RATIO } from '@/lib/placeholder.js';
@@ -17,50 +20,48 @@ export const brand = {
   city: 'Тенерифе',
   email: 'Валя@gorbaty.photo',
   phone: '+34 612 345 678',
-  telegram: '@gorbaty_photo',
-  telegramUrl: 'https://t.me/gorbaty_photo',
+  instagram: '@gorbaty.photo',
+  instagramUrl: 'https://instagram.com/gorbaty.photo',
   hours: 'Всегда отвечу',
 };
 
 /** Пункты меню. `id` — это id секции на странице. */
 export const nav = [
   { id: 'about', label: 'Обо мне' },
-  { id: 'process', label: 'Как это проходит' },
+  { id: 'packages', label: 'Что входит' },
   { id: 'portfolio', label: 'Портфолио' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'faq', label: 'Вопросы' },
 ];
 
 export const socials = [
-  { label: 'Telegram', href: 'https://t.me/gorbaty_photo' },
-  { label: 'Instagram', href: '#' },
-  { label: 'Pinterest', href: '#' },
-  { label: 'VK', href: '#' },
+  { label: 'Instagram', href: 'https://instagram.com/gorbaty.photo' },
 ];
 
 /* ─────────────────────────  ПЕРВЫЙ ЭКРАН  ───────────────────────── */
 
 export const hero = {
-  kicker: 'Свадебная фотография · Тенерифе и Канарские острова',
   title: 'Ваш день таким, каким он был был незабываемым',
   lead:
     'Репортаж без постановок и команды «а теперь сделайте вид, что смеётесь». ' +
     ' где в семь утра туман в Анаге, где солнце садится за Тей.',
   actions: [
-    { label: 'Проверить свою дату', href: '#contact', primary: true },
-    { label: 'Смотреть портфолио', href: '#portfolio' },
+    { label: 'Портфолио', href: '#portfolio', primary: true },
   ],
   facts: [
     { value: '6 лет', label: 'работаю проф фотографом' },
     { value: '1 неделя', label: 'до отредактированной работы' },
   ],
-  photo: { src: null, ratio: RATIO.portrait, alt: 'Пара в день свадьбы', label: 'Кадр 4:5' },
+  photo: {
+    src: '/images/hero.jpg',
+    ratio: RATIO.portrait,
+    alt: 'Жених и невеста идут по траве в закатном свете',
+  },
 };
 
 /* ─────────────────────────  ОБО МНЕ  ───────────────────────── */
 
 export const about = {
-  kicker: 'Обо мне',
   title: 'Восемь лет снимаю свадьбы, шесть из них — на Тенерифе. И до сих пор помню каждую.',
   text: [
     'Начинал вторым фотографом в 2018-м, с 2020-го работаю один и беру не больше двадцати свадеб в год: ' +
@@ -70,47 +71,42 @@ export const about = {
     'На площадке меня почти не видно. Я не строю гостей, не прошу переснять первый поцелуй и не забираю ' +
       'вас на два часа фотосессии — снимаю то, что и так происходит, и подсказываю только там, где без этого никак.',
   ],
-  /** Короткие честные обещания вместо общих слов «профессионализм и качество». */
-  promises: [
-    'Одна свадьба в день — я не уезжаю раньше и никуда не спешу.',
-    'Все кадры цветокорректирую сам, без сторонних ретушёров.',
-    'Договор и фиксированная цена: доплат в день съёмки не бывает.',
-  ],
   signature: 'Хуй',
-  photo: { src: null, ratio: RATIO.portrait, alt: 'Портрет фотографа', tone: 1, label: 'Портрет' },
+  photo: {
+    src: '/images/about.jpg',
+    ratio: RATIO.portrait,
+    alt: 'Портрет фотографа с камерой',
+  },
 };
 
-/* ─────────────────────────  КАК ЭТО ПРОХОДИТ  ───────────────────────── */
+/* ─────────────────────────  ЧТО ВХОДИТ  ─────────────────────────
+   Три формата съёмки. Поле `icon` выбирает рисунок из набора
+   src/components/sections/Packages.jsx: 'camera', 'church' или 'glasses'.
+   ──────────────────────────────────────────────────────────────── */
 
-export const process = {
-  kicker: 'Как это проходит',
-  title: 'Пять шагов от первого сообщения до готовой галереи',
-  lead: 'Чтобы вы заранее знали, что и когда происходит, и ни о чём не догадывались по ходу дела.',
-  steps: [
+export const packages = {
+  title: 'Съёмка, собранная под ваш день',
+  lead:
+    'Три формата — от короткой церемонии до полного дня. Точную цену считаю после того, '
+    + 'как узнаю дату, площадку и тайминг: доплат в день съёмки не бывает.',
+  items: [
     {
-      title: 'Знакомимся',
-      time: '20 минут',
-      text: 'Созваниваемся или встречаемся за кофе: дата, площадка, примерный тайминг, ваши ожидания. Здесь же смотрим полные галереи, а не только избранное.',
+      icon: 'camera',
+      title: 'Полный день: от сборов до финала',
+      text: 'Приезжаю за полчаса до сборов и уезжаю после последнего танца. Две камеры, '
+        + 'запасные карты и батареи. Ничего не пропускаем, и вам не нужно смотреть на часы.',
     },
     {
-      title: 'Бронируем дату',
-      time: 'В тот же день',
-      text: 'Договор и предоплата 30%. До этого момента дата остаётся свободной для всех — я никого не «придерживаю» на словах.',
+      icon: 'church',
+      title: 'Церемония: главное и без спешки',
+      text: 'Три-четыре часа вокруг регистрации: сбор гостей, клятвы, поздравления и короткая '
+        + 'прогулка рядом с площадкой. Подходит, если празднуете узким кругом.',
     },
     {
-      title: 'Готовимся',
-      time: 'За 2 недели',
-      text: 'Собираем тайминг вместе с координатором, отмечаем важных людей и моменты, которые нельзя пропустить. Присылаю памятку по свету и месту для сборов.',
-    },
-    {
-      title: 'Снимаем',
-      time: 'День свадьбы',
-      text: 'Приезжаю за полчаса до сборов, ухожу после того, как отгремит финал. Две камеры, запасные карты и батареи, никаких «извините, техника».',
-    },
-    {
-      title: 'Отдаю кадры',
-      time: '3–5 недель',
-      text: 'Через 3 дня — 20 превью, чтобы было что показать. Затем частная онлайн-галерея с полным отбором: скачивание, печать, доступ на год.',
+      icon: 'glasses',
+      title: 'Вечер: когда все уже свои',
+      text: 'Съёмка второй половины дня — ужин, тосты, первый танец и бенгальские огни. '
+        + 'Самые живые кадры обычно случаются именно здесь, ближе к ночи.',
     },
   ],
 };
@@ -118,7 +114,6 @@ export const process = {
 /* ─────────────────────────  ПОРТФОЛИО  ───────────────────────── */
 
 export const portfolio = {
-  kicker: 'Портфолио',
   title: 'Избранные кадры',
   lead: 'Съёмки за последние два года. Полные галереи показываю на встрече — целиком, без выборочных «лучших».',
   categories: [
@@ -131,18 +126,20 @@ export const portfolio = {
   ],
   /** Первые 6 показываются сразу, остальные — по кнопке. */
   items: [
-    { title: 'Утро в Ла-Оротаве', place: 'Тенерифе, 2025', cat: 'morning', src: null, ratio: RATIO.portrait },
-    { title: 'Кольца и тишина', place: 'Гарачико, 2025', cat: 'ceremony', src: null, ratio: RATIO.landscape },
-    { title: 'Дорога к океану', place: 'Лос-Гигантес, 2025', cat: 'walk', src: null, ratio: RATIO.portrait },
-    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'party', src: null, ratio: RATIO.portrait },
-    { title: 'Закат за Тейде', place: 'Тейде, 2024', cat: 'walk', src: null, ratio: RATIO.landscape },
-    { title: 'Букет на подоконнике', place: 'Ла-Лагуна, 2024', cat: 'morning', src: null, ratio: RATIO.portrait },
-    { title: 'Клятвы', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'ceremony', src: null, ratio: RATIO.portrait },
-    { title: 'Свет из окна', place: 'Ла-Лагуна, 2024', cat: 'love', src: null, ratio: RATIO.landscape },
-    { title: 'Тосты', place: 'Санта-Крус, 2024', cat: 'party', src: null, ratio: RATIO.portrait },
-    { title: 'Перед выходом', place: 'Эль-Медано, 2024', cat: 'morning', src: null, ratio: RATIO.portrait },
-    { title: 'Он и она, Анага', place: 'Анага, 2023', cat: 'love', src: null, ratio: RATIO.landscape },
-    { title: 'Последний танец', place: 'Ла-Гомера, 2023', cat: 'party', src: null, ratio: RATIO.portrait },
+    { title: 'Утро в Ла-Оротаве', place: 'Ла-Оротава, 2025', cat: 'morning', src: '/images/01-morning.jpg', ratio: RATIO.portrait },
+    { title: 'Кольца и тишина', place: 'Гарачико, 2025', cat: 'ceremony', src: '/images/02-rings.jpg', ratio: RATIO.landscape },
+    { title: 'Церемония у воды', place: 'Лос-Гигантес, 2025', cat: 'ceremony', src: '/images/03-shore.jpg', ratio: RATIO.portrait },
+    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'party', src: '/images/04-dance.jpg', ratio: RATIO.portrait },
+    { title: 'Закат за Тейде', place: 'Тейде, 2024', cat: 'walk', src: '/images/05-sunset.jpg', ratio: RATIO.landscape },
+    { title: 'Платье у окна', place: 'Ла-Лагуна, 2024', cat: 'morning', src: '/images/06-dress.jpg', ratio: RATIO.portrait },
+    { title: 'Клятвы', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'ceremony', src: '/images/07-vows.jpg', ratio: RATIO.portrait },
+    { title: 'Смех между кадрами', place: 'Санта-Крус, 2024', cat: 'love', src: '/images/08-laugh.jpg', ratio: RATIO.landscape },
+    { title: 'Бенгальские огни', place: 'Санта-Крус, 2024', cat: 'party', src: '/images/09-sparks.jpg', ratio: RATIO.landscape },
+    { title: 'Перед выходом', place: 'Эль-Медано, 2024', cat: 'morning', src: '/images/10-mirror.jpg', ratio: RATIO.portrait },
+    { title: 'Он и она, Анага', place: 'Анага, 2023', cat: 'walk', src: '/images/11-anaga.jpg', ratio: RATIO.landscape },
+    { title: 'Последний танец', place: 'Ла-Гомера, 2023', cat: 'party', src: '/images/12-lastdance.jpg', ratio: RATIO.landscape },
+    { title: 'Под аркой', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/13-arch.jpg', ratio: RATIO.portrait },
+    { title: 'Сумерки в старом городе', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/14-dusk.jpg', ratio: RATIO.portrait },
   ],
   moreLabel: 'Показать ещё',
   visible: 6,
@@ -151,7 +148,6 @@ export const portfolio = {
 /* ─────────────────────────  ОТЗЫВЫ  ───────────────────────── */
 
 export const reviews = {
-  kicker: 'Отзывы',
   title: 'Что говорят пары',
   items: [
     {
@@ -172,13 +168,30 @@ export const reviews = {
       author: 'Аня и Паша',
       meta: 'Август 2024, Ла-Оротава',
     },
+    {
+      text: 'Половину дня шёл дождь, и мы уже мысленно попрощались с прогулкой. ' +
+        'В итоге именно эти кадры под зонтом мы и распечатали.',
+      author: 'Лена и Артём',
+      meta: 'Март 2024, Пуэрто-де-ла-Крус',
+    },
+    {
+      text: 'Гости весь вечер спрашивали, где мы нашли фотографа, который никому не мешает. ' +
+        'Никто так и не понял, в какой момент он всё это снял.',
+      author: 'Оля и Никита',
+      meta: 'Октябрь 2023, Ла-Лагуна',
+    },
+    {
+      text: 'Отдельно про переписку: отвечал в тот же день, всё по делу, без «давайте обсудим на созвоне». ' +
+        'Для нас это оказалось важнее портфолио.',
+      author: 'Вера и Максим',
+      meta: 'Июль 2023, Ла-Гомера',
+    },
   ],
 };
 
 /* ─────────────────────────  ВОПРОСЫ  ───────────────────────── */
 
 export const faq = {
-  kicker: 'Вопросы',
   title: 'То, что спрашивают до брони',
   items: [
     {
@@ -215,21 +228,18 @@ export const faq = {
 /* ─────────────────────────  КОНТАКТЫ  ───────────────────────── */
 
 export const contact = {
-  kicker: 'Забронировать',
-  title: 'Расскажите про вашу свадьбу',
+  title: 'Связаться',
   lead: 'Отвечу в течение суток и сразу скажу, свободна ли дата. Ни к чему не обязывает.',
   fields: [
-    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Аня и Паша' },
-    { name: 'date', label: 'Дата свадьбы', type: 'date', required: true },
-    { name: 'contact', label: 'Телефон или Telegram', type: 'text', required: true, placeholder: '+7 900 000-00-00' },
-    { name: 'place', label: 'Город и площадка', type: 'text', required: false, placeholder: 'Ла-Оротава, Finca Cinco Robles' },
-    { name: 'message', label: 'Что уже известно про день', type: 'textarea', required: false, placeholder: 'Сборы в отеле, выездная регистрация в 17:00, около 60 гостей', rows: 4 },
+    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Аня и Паша', autoComplete: 'name' },
+    { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+7 900 000-00-00', inputMode: 'tel', autoComplete: 'tel' },
+    { name: 'message', label: 'Пара слов о дне', type: 'textarea', required: false, placeholder: 'Дата, площадка, примерное число гостей', rows: 3 },
   ],
-  submit: 'Проверить дату',
+  submit: 'Отправить',
   sending: 'Отправляю…',
   success: {
     title: 'Заявка ушла',
-    text: 'Я отвечу в течение суток. Если нужно быстрее — напишите в Telegram, там я на связи почти всегда.',
+    text: 'Я отвечу в течение суток. Если нужно быстрее — позвоните или напишите в Instagram.',
   },
 };
 

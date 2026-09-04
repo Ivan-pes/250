@@ -1,0 +1,41 @@
+.ornament {
+  display: flex;
+  justify-content: center;
+  width: min(100% - var(--pad) * 2, var(--maxw));
+  margin-inline: auto;
+  padding-block: clamp(30px, 5.5vw, 52px);
+  color: var(--ink);
+}
+
+/* когда разделитель остаётся на подкрашенном фоне соседней секции */
+.ornament--tinted {
+  width: auto;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--pad);
+  background: var(--bg-tint);
+}
+
+.ornament__mark {
+  width: clamp(210px, 58vw, 320px);
+  height: auto;
+  overflow: visible;
+}
+
+/* весь узор одного тона: завиток тоньше, мотив в середине плотнее */
+.ornament__swirl { opacity: 0.7; }
+
+/* завиток раскрывается от центра, когда разделитель попадает в кадр */
+@media (prefers-reduced-motion: no-preference) {
+  .ornament__swirl {
+    opacity: 0;
+    transform: scaleX(0.55);
+    transform-origin: center;
+    transition: opacity 0.8s var(--ease) 120ms, transform 1s var(--ease) 120ms;
+  }
+
+  .ornament.is-in .ornament__swirl {
+    opacity: 0.75;
+    transform: none;
+  }
+}

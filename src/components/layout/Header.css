@@ -14,6 +14,8 @@
 }
 
 .header__bar {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,32 +26,11 @@
 /* ── логотип ── */
 
 .header__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
   flex-shrink: 0;
-}
-
-.header__mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
   font-family: var(--font-display);
-  font-size: 15px;
-  letter-spacing: 0.04em;
-}
-
-.header__name { display: flex; flex-direction: column; line-height: 1.15; }
-.header__name b { font-family: var(--font-display); font-size: 19px; font-weight: 500; }
-.header__name i {
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-45);
+  font-size: clamp(20px, 2.4vw, 24px);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 /* ── меню ── */
@@ -90,8 +71,9 @@
 .burger {
   display: grid;
   gap: 6px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
   place-content: center;
 }
 
@@ -99,47 +81,111 @@
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--ink);
-  transition: transform 0.28s var(--ease), opacity 0.2s;
+  background: currentColor;
+  transition: transform 0.28s var(--ease), opacity 0.2s, background-color 0.3s var(--ease);
 }
 
 .header.is-open .burger span:first-child { transform: translateY(3.75px) rotate(45deg); }
 .header.is-open .burger span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
 
-/* ── выдвижная панель ── */
+/* ─────────────────────────────────────────────────────────────
+   МЕНЮ НА ТЕЛЕФОНЕ
+   Не выпадающий список, а отдельный экран: крупные засечки,
+   номера разделов, контакты и соцсети внизу.
+   ───────────────────────────────────────────────────────────── */
 
 .drawer {
-  overflow: hidden;
-  max-height: 0;
-  padding-inline: var(--pad);
-  border-top: 1px solid transparent;
-  transition: max-height 0.32s var(--ease), border-color 0.32s;
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.32s var(--ease), visibility 0.32s;
 }
 
 .header.is-open .drawer {
-  max-height: 78vh;
-  border-top-color: var(--line-soft);
-  overflow-y: auto;
+  opacity: 1;
+  visibility: visible;
 }
 
-.drawer__nav { display: flex; flex-direction: column; padding-block: 12px 20px; }
+.drawer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: space-between;
+  min-height: 100%;
+  padding-block: 22px calc(28px + env(safe-area-inset-bottom));
+}
+
+.drawer__nav { display: flex; flex-direction: column; }
 
 .drawer__link {
-  padding: 13px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 15px 0;
   border-bottom: 1px solid var(--line-soft);
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(28px, 8.5vw, 40px);
+  line-height: 1.1;
 }
 
-.drawer__link--accent { color: var(--accent); border-bottom: 0; }
+.drawer__num {
+  font-family: var(--font-text);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
 
-.drawer__foot {
+.drawer__foot { display: grid; gap: 24px; }
+
+.drawer__cta { width: 100%; }
+
+.drawer__contacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.drawer__contacts dt {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.drawer__contacts dd { margin: 4px 0 0; font-size: 15px; }
+
+.drawer__socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 20px;
-  padding-bottom: 24px;
-  font-size: 14px;
+  gap: 8px 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
   color: var(--ink-70);
+}
+
+/* содержимое въезжает по очереди — меню открывается, а не просто появляется */
+@media (prefers-reduced-motion: no-preference) {
+  .drawer__link,
+  .drawer__foot {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .header.is-open .drawer__link,
+  .header.is-open .drawer__foot {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.5s var(--ease) var(--drawer-delay, 0ms),
+      transform 0.5s var(--ease) var(--drawer-delay, 0ms);
+  }
 }
 
 @media (min-width: 720px) {

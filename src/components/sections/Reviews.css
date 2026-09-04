@@ -1,15 +1,63 @@
-.reviews__grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+.reviews__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
 }
+
+.reviews__head .section-head { flex: 1 1 auto; }
+
+.reviews__nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.reviews__arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 15px;
+  color: var(--ink-70);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease),
+    background-color 0.2s var(--ease), opacity 0.2s;
+}
+
+.reviews__arrow:hover:not([disabled]) {
+  border-color: var(--accent);
+  background: var(--caramel-soft);
+  color: var(--ink);
+}
+
+.reviews__arrow[disabled] { opacity: 0.3; cursor: default; }
+
+/* лента: карточки одинаковой ширины, прокрутка с прилипанием */
+.reviews__track {
+  display: flex;
+  gap: 16px;
+  margin-inline: calc(var(--pad) * -1);
+  padding-inline: var(--pad);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--pad);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.reviews__track::-webkit-scrollbar { display: none; }
 
 .review {
   display: flex;
+  flex: 0 0 min(84%, 360px);
   flex-direction: column;
   gap: 20px;
+  scroll-snap-align: start;
   margin: 0;
-  padding: clamp(24px, 3vw, 32px);
+  padding: clamp(24px, 3vw, 30px);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   background: var(--surface);
@@ -37,4 +85,8 @@
 .review__author span {
   font-size: 13px;
   color: var(--ink-45);
+}
+
+@media (min-width: 768px) {
+  .review { flex-basis: calc((100% - 32px) / 3); }
 }

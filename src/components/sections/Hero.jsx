@@ -4,46 +4,47 @@ import Photo from '@/components/ui/Photo.jsx';
 import Reveal from '@/components/ui/Reveal.jsx';
 import { hero } from '@/data/content.js';
 
-/** Первый экран */
+/**
+ * Первый экран: большая фотография скруглённой карточкой,
+ * заголовок и кнопка лежат прямо на ней.
+ */
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero__inner container">
+      <div className="hero__card container">
+        <figure className="hero__media">
+          <Photo {...hero.photo} priority sizes="100vw" />
+        </figure>
+
         <div className="hero__type">
-          <Reveal as="p" className="kicker">{hero.kicker}</Reveal>
+          <Reveal as="h1" className="display hero__title">{hero.title}</Reveal>
 
-          <Reveal as="h1" className="display hero__title" delay={60}>{hero.title}</Reveal>
+          <div className="hero__bottom">
+            <Reveal as="p" className="lead hero__lead" delay={100}>{hero.lead}</Reveal>
 
-          <Reveal as="p" className="lead hero__lead" delay={120}>{hero.lead}</Reveal>
-
-          <Reveal className="hero__actions" delay={180}>
-            {hero.actions.map((action) => (
-              <Button
-                key={action.href}
-                href={action.href}
-                variant={action.primary ? 'primary' : 'ghost'}
-              >
-                {action.label}
-              </Button>
-            ))}
-          </Reveal>
-
-          <Reveal as="dl" className="hero__facts" delay={240}>
-            {hero.facts.map((fact) => (
-              <div className="hero__fact" key={fact.label}>
-                <dt>{fact.value}</dt>
-                <dd>{fact.label}</dd>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-
-        <Reveal as="figure" className="hero__media" delay={120}>
-          <div className="photo-frame">
-            <Photo {...hero.photo} priority />
+            <Reveal className="hero__actions" delay={160}>
+              {hero.actions.map((action) => (
+                <Button
+                  key={action.href}
+                  href={action.href}
+                  variant={action.primary ? 'primary' : 'ghost'}
+                >
+                  {action.label}
+                </Button>
+              ))}
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </div>
+
+      <dl className="hero__facts container">
+        {hero.facts.map((fact) => (
+          <div className="hero__fact" key={fact.label}>
+            <dt>{fact.value}</dt>
+            <dd>{fact.label}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

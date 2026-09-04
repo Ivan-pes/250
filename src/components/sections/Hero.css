@@ -1,29 +1,80 @@
 .hero {
-  padding-block: clamp(36px, 6vw, 72px) clamp(56px, 7vw, 104px);
+  padding-block: 0 clamp(28px, 4vw, 44px);
 }
 
-.hero__inner {
-  display: grid;
-  gap: clamp(36px, 5vw, 64px);
-  align-items: center;
+/* карточка: фотография во всю ширину колонки со скруглением */
+.hero__card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(86svh, 760px);
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: clamp(10px, 1.4vw, 18px);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--bg);
 }
 
-.hero__title { margin-bottom: 22px; max-width: 15ch; }
-.hero__lead { margin-bottom: 32px; max-width: 46ch; }
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hero__media .photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* затемнение снизу — под текстом, чтобы он читался на любом кадре */
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 16, 14, 0.82) 0%,
+    rgba(18, 16, 14, 0.45) 34%,
+    rgba(18, 16, 14, 0.08) 62%,
+    transparent 100%
+  );
+}
+
+.hero__type { width: 100%; }
+
+.hero__title {
+  max-width: 17ch;
+  margin-bottom: clamp(18px, 2.4vw, 28px);
+  font-size: clamp(36px, 5.6vw, 68px);
+}
+
+/* текст слева, кнопка справа — как в макете */
+.hero__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+.hero__lead {
+  max-width: 56ch;
+  margin: 0;
+  color: rgba(250, 248, 245, 0.86);
+}
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-shrink: 0;
   gap: 12px;
-  margin-bottom: clamp(36px, 5vw, 52px);
 }
 
 .hero__facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 48px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line-soft);
+  gap: 18px 48px;
+  margin-top: clamp(24px, 3vw, 36px);
 }
 
 .hero__fact dt {
@@ -33,18 +84,33 @@
 }
 
 .hero__fact dd {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   font-size: 13px;
   line-height: 1.4;
   color: var(--ink-45);
 }
 
-.hero__media { margin: 0; }
-.hero__media .photo-frame { max-width: 520px; margin-inline: auto; }
+/* ── телефон: кнопка уходит под текст и растягивается ── */
 
-@media (min-width: 900px) {
-  .hero__inner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+@media (max-width: 719px) {
+  .hero__card {
+    min-height: min(82svh, 680px);
+    padding: 22px;
   }
-  .hero__media .photo-frame { margin-inline: 0 0 0 auto; }
+
+  .hero__title {
+    max-width: 14ch;
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .hero__bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .hero__lead { font-size: 15px; }
+  .hero__actions .btn { width: 100%; }
+
+  .hero__facts { gap: 16px 32px; }
 }

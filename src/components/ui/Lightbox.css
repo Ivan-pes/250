@@ -73,3 +73,32 @@
 }
 
 .lightbox :focus-visible { outline-color: rgba(250, 248, 245, 0.8); }
+
+/* ─────────────────────────────────────────────────────────────
+   ТЕЛЕФОН
+   Кадры листаются пальцем, поэтому стрелки уходят вниз и не
+   отъедают ширину у самой фотографии.
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 639px) {
+  .lightbox {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 18px;
+    padding: 60px 12px calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .lightbox__figure {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-content: center;
+  }
+
+  .lightbox__photo { max-height: 68svh; }
+
+  .lightbox__nav { grid-row: 2; }
+  .lightbox__nav--prev { grid-column: 1; justify-self: end; }
+  .lightbox__nav--next { grid-column: 2; justify-self: start; }
+
+  .lightbox__title { font-size: 20px; }
+}

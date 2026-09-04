@@ -33,7 +33,7 @@ export default function Portfolio() {
 
   return (
     <Section id="portfolio" className="portfolio">
-      <SectionHead kicker={portfolio.kicker} title={portfolio.title} lead={portfolio.lead} />
+      <SectionHead title={portfolio.title} lead={portfolio.lead} />
 
       <div className="portfolio__filters" role="tablist" aria-label="Разделы галереи">
         {portfolio.categories.map((item) => (
@@ -64,7 +64,12 @@ export default function Portfolio() {
               aria-label={`Открыть кадр «${item.title}»`}
             >
               <span className="card__frame">
-                <Photo {...item} alt={item.title} tone={i} />
+                <Photo
+                  {...item}
+                  alt={item.title}
+                  tone={i}
+                  sizes="(min-width: 1200px) 380px, (min-width: 1000px) 32vw, (min-width: 620px) 48vw, 100vw"
+                />
               </span>
               <span className="card__caption">
                 <span className="card__title">{item.title}</span>

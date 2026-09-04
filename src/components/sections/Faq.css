@@ -64,3 +64,17 @@
 }
 
 .faq__item.is-open .faq__answer { padding-bottom: 24px; }
+
+/* на телефоне вопрос — это кнопка под палец: выше строка, шире поле промаха */
+@media (max-width: 640px) {
+  .faq__trigger {
+    gap: 16px;
+    padding: 19px 0;
+    font-size: 21px;
+  }
+
+  .faq__answer {
+    padding-right: 8px;
+    font-size: 14.5px;
+  }
+}

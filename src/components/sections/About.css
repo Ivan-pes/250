@@ -20,32 +20,10 @@
   color: var(--ink-70);
 }
 
-.about__promises {
-  display: grid;
-  gap: 12px;
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line-soft);
-}
-
-.about__promises li {
-  position: relative;
-  padding-left: 26px;
-  font-size: 15px;
-}
-
-.about__promises li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 11px;
-  width: 12px;
-  height: 1px;
-  background: var(--accent);
-}
-
 .about__sign {
-  margin-top: 28px;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
   font-family: var(--font-display);
   font-size: 26px;
   color: var(--ink-70);

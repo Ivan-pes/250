@@ -13,7 +13,7 @@ export default function Faq() {
 
   return (
     <Section id="faq" className="faq">
-      <SectionHead kicker={faq.kicker} title={faq.title} />
+      <SectionHead title={faq.title} />
 
       <div className="faq__list">
         {faq.items.map((item, i) => {

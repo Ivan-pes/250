@@ -45,13 +45,13 @@ export default function Contact() {
       setStatus('done');
     } catch {
       setStatus('idle');
-      setErrors({ form: 'Не удалось отправить. Напишите в Telegram — так точно дойдёт.' });
+      setErrors({ form: 'Не удалось отправить. Позвоните или напишите на почту — так точно дойдёт.' });
     }
   };
 
   return (
     <Section id="contact" tinted className="contact">
-      <SectionHead kicker={contact.kicker} title={contact.title} lead={contact.lead} />
+      <SectionHead title={contact.title} lead={contact.lead} />
 
       <div className="contact__inner">
         <Reveal className="contact__form-wrap">
@@ -59,9 +59,7 @@ export default function Contact() {
             <div className="contact__done" role="status">
               <h3 className="display">{contact.success.title}</h3>
               <p>{contact.success.text}</p>
-              <a className="link" href={brand.telegramUrl} target="_blank" rel="noreferrer noopener">
-                Написать в Telegram
-              </a>
+              <a className="link" href={`mailto:${brand.email}`}>{brand.email}</a>
             </div>
           ) : (
             <form className="contact__form" onSubmit={handleSubmit} noValidate>
@@ -96,24 +94,20 @@ export default function Contact() {
         <Reveal as="aside" className="contact__aside" delay={120}>
           <dl className="contact__details">
             <div>
+              <dt>Instagram</dt>
+              <dd>
+                <a className="link" href={brand.instagramUrl} target="_blank" rel="noreferrer noopener">
+                  {brand.instagram}
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt>Почта</dt>
               <dd><a className="link" href={`mailto:${brand.email}`}>{brand.email}</a></dd>
             </div>
             <div>
               <dt>Телефон</dt>
               <dd><a className="link" href={telHref}>{brand.phone}</a></dd>
-            </div>
-            <div>
-              <dt>Telegram</dt>
-              <dd>
-                <a className="link" href={brand.telegramUrl} target="_blank" rel="noreferrer noopener">
-                  {brand.telegram}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt>Где снимаю</dt>
-              <dd>{brand.city}, соседние острова и материк</dd>
             </div>
           </dl>
 

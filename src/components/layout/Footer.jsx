@@ -24,8 +24,8 @@ export default function Footer() {
           <h2 className="footer__title">Контакты</h2>
           <a href={`mailto:${brand.email}`}>{brand.email}</a>
           <a href={telHref}>{brand.phone}</a>
-          <a href={brand.telegramUrl} target="_blank" rel="noreferrer noopener">
-            {brand.telegram}
+          <a href={brand.instagramUrl} target="_blank" rel="noreferrer noopener">
+            {brand.instagram}
           </a>
         </div>
 

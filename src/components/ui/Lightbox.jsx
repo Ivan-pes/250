@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import './Lightbox.css';
@@ -14,8 +14,34 @@ import { useBodyLock } from '@/hooks/useBodyLock.js';
 export default function Lightbox({ items, index, onClose, onChange }) {
   const isOpen = index !== null && index >= 0 && index < items.length;
   const dialogRef = useRef(null);
+  const swipeStart = useRef(null);
 
   useBodyLock(isOpen);
+
+  const step = useCallback(
+    (delta) => onChange((index + delta + items.length) % items.length),
+    [index, items.length, onChange],
+  );
+
+  // листание пальцем: короткий горизонтальный жест = соседний кадр
+  const onTouchStart = (event) => {
+    const touch = event.changedTouches[0];
+    swipeStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const onTouchEnd = (event) => {
+    const from = swipeStart.current;
+    if (!from) return;
+    swipeStart.current = null;
+
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - from.x;
+    const dy = touch.clientY - from.y;
+
+    // вертикальные движения оставляем прокрутке и закрытию
+    if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+    step(dx < 0 ? 1 : -1);
+  };
 
   // фокус забираем при открытии и возвращаем на карточку при закрытии
   useEffect(() => {
@@ -33,13 +59,13 @@ export default function Lightbox({ items, index, onClose, onChange }) {
 
     const onKeyDown = (event) => {
       if (event.key === 'Escape') onClose();
-      if (event.key === 'ArrowLeft') onChange((index - 1 + items.length) % items.length);
-      if (event.key === 'ArrowRight') onChange((index + 1) % items.length);
+      if (event.key === 'ArrowLeft') step(-1);
+      if (event.key === 'ArrowRight') step(1);
     };
 
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [isOpen, index, items.length, onClose, onChange]);
+  }, [isOpen, onClose, step]);
 
   if (!isOpen) return null;
 
@@ -56,6 +82,8 @@ export default function Lightbox({ items, index, onClose, onChange }) {
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <button className="lightbox__close" type="button" onClick={onClose} aria-label="Закрыть">
         ✕
@@ -64,14 +92,20 @@ export default function Lightbox({ items, index, onClose, onChange }) {
       <button
         className="lightbox__nav lightbox__nav--prev"
         type="button"
-        onClick={() => onChange((index - 1 + items.length) % items.length)}
+        onClick={() => step(-1)}
         aria-label="Предыдущий кадр"
       >
         ←
       </button>
 
       <figure className="lightbox__figure">
-        <Photo {...item} alt={item.alt || item.title} priority className="lightbox__photo" />
+        <Photo
+          {...item}
+          alt={item.alt || item.title}
+          priority
+          sizes="100vw"
+          className="lightbox__photo"
+        />
         <figcaption className="lightbox__caption">
           <span className="lightbox__title">{item.title}</span>
           <span className="lightbox__meta">
@@ -83,7 +117,7 @@ export default function Lightbox({ items, index, onClose, onChange }) {
       <button
         className="lightbox__nav lightbox__nav--next"
         type="button"
-        onClick={() => onChange((index + 1) % items.length)}
+        onClick={() => step(1)}
         aria-label="Следующий кадр"
       >
         →

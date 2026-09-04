@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import './Header.css';
-import { brand, nav } from '@/data/content.js';
+import { brand, nav, socials } from '@/data/content.js';
 import { useScrolled } from '@/hooks/useScrolled.js';
 import { useScrollSpy } from '@/hooks/useScrollSpy.js';
 import { useBodyLock } from '@/hooks/useBodyLock.js';
@@ -33,11 +33,7 @@ export default function Header() {
     <header className={cx('header', (scrolled || open) && 'is-solid', open && 'is-open')}>
       <div className="header__bar container">
         <a className="header__brand" href="#top" onClick={() => setOpen(false)}>
-          <span className="header__mark" aria-hidden="true">{brand.short}</span>
-          <span className="header__name">
-            <b>{brand.name}</b>
-            <i>{brand.role}</i>
-          </span>
+          {brand.name}
         </a>
 
         <nav className="header__nav" aria-label="Разделы сайта">
@@ -55,7 +51,7 @@ export default function Header() {
 
         <div className="header__side">
           <a className="header__phone" href={telHref}>{brand.phone}</a>
-          <a className="btn btn--primary header__cta" href="#contact">Забронировать дату</a>
+          <a className="btn btn--primary header__cta" href="#contact">Связаться</a>
 
           <button
             className="burger"
@@ -72,30 +68,49 @@ export default function Header() {
       </div>
 
       <div className="drawer" id="drawer" inert={open ? undefined : true}>
-        <nav className="drawer__nav" aria-label="Разделы сайта">
-          {nav.map((item) => (
-            <a
-              key={item.id}
-              className="drawer__link"
-              href={`#${item.id}`}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="drawer__inner container">
+          <nav className="drawer__nav" aria-label="Разделы сайта">
+            {nav.map((item, i) => (
+              <a
+                key={item.id}
+                className="drawer__link"
+                style={{ '--drawer-delay': `${60 + i * 45}ms` }}
+                href={`#${item.id}`}
+                onClick={() => setOpen(false)}
+              >
+                <span className="drawer__num">{String(i + 1).padStart(2, '0')}</span>
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-          <a
-            className="drawer__link drawer__link--accent"
-            href="#contact"
-            onClick={() => setOpen(false)}
+          <div
+            className="drawer__foot"
+            style={{ '--drawer-delay': `${60 + nav.length * 45}ms` }}
           >
-            Забронировать дату
-          </a>
-        </nav>
+            <a className="btn btn--primary drawer__cta" href="#contact" onClick={() => setOpen(false)}>
+              Связаться
+            </a>
 
-        <div className="drawer__foot">
-          <a href={telHref}>{brand.phone}</a>
-          <a href={`mailto:${brand.email}`}>{brand.email}</a>
+            <dl className="drawer__contacts">
+              <div>
+                <dt>Телефон</dt>
+                <dd><a href={telHref}>{brand.phone}</a></dd>
+              </div>
+              <div>
+                <dt>Почта</dt>
+                <dd><a href={`mailto:${brand.email}`}>{brand.email}</a></dd>
+              </div>
+            </dl>
+
+            <ul className="drawer__socials">
+              {socials.map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} target="_blank" rel="noreferrer noopener">{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </header>

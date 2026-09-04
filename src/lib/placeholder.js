@@ -1,15 +1,3 @@
-/**
- * Временные заглушки вместо фотографий.
- *
- * Пока реального кадра нет, на его месте стоит ровный серый прямоугольник
- * нужной пропорции — вёрстка сразу выглядит так, как будет с фото.
- *
- * Как поставить настоящий снимок: положите файл в /public/images
- * и укажите его в src/data/content.js — `src: '/images/01.jpg'`.
- * Больше ничего менять не нужно.
- */
-
-/** Пропорции кадров, которыми пользуется сайт. */
 export const RATIO = {
   portrait: '4 / 5',
   square: '1 / 1',
@@ -17,17 +5,11 @@ export const RATIO = {
   wide: '16 / 9',
 };
 
-/**
- * Рисует серую заглушку прямо в браузере, без загрузки файлов.
- * @param {{ratio?: string, tone?: number, label?: string}} options
- * @returns {string} data-URI для атрибута src
- */
 export function placeholder({ ratio = RATIO.portrait, tone = 0, label = '' } = {}) {
   const [rw, rh] = ratio.split('/').map((n) => parseFloat(n.trim()));
   const w = 400;
   const h = Math.round((w * rh) / rw);
 
-  // тон слегка гуляет от кадра к кадру, чтобы сетка не выглядела мёртвой
   const base = 90 - (Math.abs(tone) % 3) * 3;
   const fill = `hsl(38 8% ${base}%)`;
   const mark = `hsl(38 7% ${base - 10}%)`;

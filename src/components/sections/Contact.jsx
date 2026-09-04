@@ -11,11 +11,10 @@ import { submitLead } from '@/lib/submitLead.js';
 const EMPTY = Object.fromEntries(contact.fields.map((field) => [field.name, '']));
 const telHref = `tel:${brand.phone.replace(/[^\d+]/g, '')}`;
 
-/** Форма брони: три обязательных поля, остальное — по желанию. */
 export default function Contact() {
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | sending | done
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (event) => {
     const { name, value } = event.target;

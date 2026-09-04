@@ -10,7 +10,6 @@ import SectionHead from '@/components/ui/SectionHead.jsx';
 import { portfolio } from '@/data/content.js';
 import { cx } from '@/lib/cx.js';
 
-/** Галерея с разделами, догрузкой по кнопке и просмотром кадра во весь экран. */
 export default function Portfolio() {
   const [category, setCategory] = useState('all');
   const [visible, setVisible] = useState(portfolio.visible);
@@ -68,7 +67,7 @@ export default function Portfolio() {
                   {...item}
                   alt={item.title}
                   tone={i}
-                  /* первый ряд грузим сразу — иначе он «дорисовывается» на глазах */
+
                   priority={i < 3}
                   sizes="(min-width: 1200px) 380px, (min-width: 1000px) 32vw, (min-width: 620px) 48vw, 100vw"
                 />

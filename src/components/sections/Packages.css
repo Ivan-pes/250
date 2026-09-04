@@ -37,7 +37,6 @@
   text-wrap: pretty;
 }
 
-/* на телефоне карточки разделяет волосяная линия — иначе они слипаются */
 @media (max-width: 799px) {
   .packages__grid { gap: 32px; }
 

@@ -4,16 +4,6 @@ import { placeholder, RATIO } from '@/lib/placeholder.js';
 import { photos } from '@/data/photos.js';
 import { cx } from '@/lib/cx.js';
 
-/**
- * Кадр.
- *
- * Пока в данных нет `src` — на месте фотографии стоит серая заглушка той же
- * пропорции, поэтому вёрстка не прыгает при замене на реальные снимки.
- *
- * Для снимков из набора сайта (список в src/data/photos.js) телефон скачивает
- * облегчённую копию, а до её появления держит размытое превью — кадр
- * проявляется, а не выпрыгивает белым прямоугольником.
- */
 export default function Photo({
   src = null,
   alt = '',
@@ -27,7 +17,6 @@ export default function Photo({
   const meta = src ? photos[src] : null;
   const [loaded, setLoaded] = useState(!meta);
 
-  // картинка из кэша успевает загрузиться до подписки на onLoad — проверяем сами
   const watch = useCallback((node) => {
     if (node?.complete) setLoaded(true);
   }, []);

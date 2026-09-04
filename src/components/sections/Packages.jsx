@@ -4,14 +4,6 @@ import Section from '@/components/ui/Section.jsx';
 import SectionHead from '@/components/ui/SectionHead.jsx';
 import { packages } from '@/data/content.js';
 
-/**
- * Что входит: три формата съёмки.
- *
- * Рисунки нарисованы одной линией в системе координат 48×48:
- * камера, церковь со шпилем и бокалы. Ничего лишнего вокруг.
- */
-
-/** Один бокал: чаша, ножка, донце. Наклон задаётся снаружи. */
 const flute = (
   <>
     <path d="M-3.6 0-2.1 11.5Q0 14.6 2.1 11.5L3.6 0Z" />

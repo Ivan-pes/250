@@ -4,12 +4,10 @@
   z-index: 300;
   display: grid;
   place-items: center;
-  /* lvh — высота экрана с убранными панелями браузера: во встроенном
-     браузере Telegram панель то появляется, то исчезает, и без этого
-     снизу вылезала полоска сайта из-под заставки */
+
   min-height: 100lvh;
   overflow: hidden;
-  /* жест по заставке не должен прокручивать страницу под ней */
+
   touch-action: none;
   overscroll-behavior: none;
   background: #14120f;
@@ -22,7 +20,6 @@
   to { opacity: 1; }
 }
 
-/* уход: сама заставка тает, содержимое чуть уезжает вверх */
 .intro.is-leaving {
   opacity: 0;
   transition: opacity 0.65s var(--ease);
@@ -33,8 +30,6 @@
   transform: translateY(-16px);
   transition: transform 0.65s var(--ease);
 }
-
-/* ── фон: кадр, поверх него видео ── */
 
 .intro__media {
   position: absolute;
@@ -50,7 +45,6 @@
   object-fit: cover;
 }
 
-/* пока видео не подгрузилось (или файла нет) — кадр с медленным наездом */
 .intro__poster {
   animation: intro-zoom 18s var(--ease) forwards;
 }
@@ -67,7 +61,6 @@
 
 .intro__video.is-ready { opacity: 1; }
 
-/* затемнение, чтобы надписи читались на любом кадре */
 .intro__media::after {
   content: '';
   position: absolute;
@@ -79,14 +72,12 @@
   );
 }
 
-/* ── центр: надпись, на которую жмут, и подпись под ней ── */
-
 .intro__body {
   position: relative;
   display: grid;
   justify-items: center;
   gap: 16px;
-  /* чуть ниже середины экрана */
+
   margin-top: clamp(70px, 16vh, 150px);
   padding: var(--pad);
   text-align: center;

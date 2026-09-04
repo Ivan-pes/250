@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
 
-/**
- * Возвращает id секции, которая сейчас занимает середину экрана, —
- * чтобы подсветить нужный пункт меню.
- *
- * @param {string[]} ids
- */
 export function useScrollSpy(ids) {
   const [active, setActive] = useState(null);
 

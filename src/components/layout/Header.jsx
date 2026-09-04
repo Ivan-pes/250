@@ -10,13 +10,6 @@ import { cx } from '@/lib/cx.js';
 const NAV_IDS = nav.map((item) => item.id);
 const telHref = `tel:${brand.phone.replace(/[^\d+]/g, '')}`;
 
-/**
- * Шапка: логотип, меню с подсветкой текущей секции, кнопка «Связаться».
- *
- * Выдвижное меню лежит РЯДОМ с шапкой, а не внутри неё. Это важно:
- * у шапки есть `backdrop-filter`, а он делает элемент точкой отсчёта для
- * `position: fixed` внутри — меню схлопывалось до высоты шапки и не открывалось.
- */
 export default function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrolled(24);

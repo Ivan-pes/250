@@ -6,12 +6,6 @@ import Section from '@/components/ui/Section.jsx';
 import SectionHead from '@/components/ui/SectionHead.jsx';
 import { reviews } from '@/data/content.js';
 
-/**
- * Отзывы — лента, которую листают стрелками или пальцем.
- *
- * Позиция считается по самой прокрутке, а не по счётчику в памяти: тогда
- * свайп и кнопки не расходятся между собой, а стрелки гаснут на краях.
- */
 export default function Reviews() {
   const trackRef = useRef(null);
   const [edge, setEdge] = useState({ start: true, end: false });
@@ -37,7 +31,6 @@ export default function Reviews() {
     const track = trackRef.current;
     if (!track) return;
 
-    // шаг — ширина одной карточки вместе с зазором
     const card = track.firstElementChild;
     const step = card ? card.getBoundingClientRect().width + 16 : track.clientWidth;
     track.scrollBy({ left: step * direction, behavior: 'smooth' });

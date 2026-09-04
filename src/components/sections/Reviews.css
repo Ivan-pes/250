@@ -34,7 +34,6 @@
 
 .reviews__arrow[disabled] { opacity: 0.3; cursor: default; }
 
-/* лента: карточки одинаковой ширины, прокрутка с прилипанием */
 .reviews__track {
   display: flex;
   gap: 16px;

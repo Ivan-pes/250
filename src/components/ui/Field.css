@@ -42,7 +42,6 @@ textarea.field__control {
   line-height: 1.55;
 }
 
-/* поле даты в Safari/Chrome без своего фона и с нормальной высотой */
 input[type='date'].field__control {
   appearance: none;
   min-height: 47px;

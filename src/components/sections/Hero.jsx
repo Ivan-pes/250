@@ -4,10 +4,6 @@ import Photo from '@/components/ui/Photo.jsx';
 import Reveal from '@/components/ui/Reveal.jsx';
 import { hero } from '@/data/content.js';
 
-/**
- * Первый экран: большая фотография скруглённой карточкой,
- * заголовок и кнопка лежат прямо на ней.
- */
 export default function Hero() {
   return (
     <section className="hero" id="top">

@@ -23,7 +23,6 @@
 
 .faq__trigger:hover { color: var(--accent); }
 
-/* плюс, который превращается в минус */
 .faq__sign {
   position: relative;
   flex: 0 0 auto;
@@ -46,7 +45,6 @@
 .faq__sign::after { transform: rotate(90deg); }
 .faq__item.is-open .faq__sign::after { transform: rotate(0deg); }
 
-/* раскрытие без магических высот: 0fr → 1fr */
 .faq__panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -65,7 +63,6 @@
 
 .faq__item.is-open .faq__answer { padding-bottom: 24px; }
 
-/* на телефоне вопрос — это кнопка под палец: выше строка, шире поле промаха */
 @media (max-width: 640px) {
   .faq__trigger {
     gap: 16px;

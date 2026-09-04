@@ -1,7 +1,6 @@
 import './Field.css';
 import { cx } from '@/lib/cx.js';
 
-/** Поле формы: подпись, контрол и место под сообщение об ошибке. */
 export default function Field({
   name,
   label,

@@ -7,7 +7,6 @@
   color: var(--ink);
 }
 
-/* когда разделитель остаётся на подкрашенном фоне соседней секции */
 .ornament--tinted {
   width: auto;
   max-width: none;
@@ -22,10 +21,8 @@
   overflow: visible;
 }
 
-/* весь узор одного тона: завиток тоньше, мотив в середине плотнее */
 .ornament__swirl { opacity: 0.7; }
 
-/* завиток раскрывается от центра, когда разделитель попадает в кадр */
 @media (prefers-reduced-motion: no-preference) {
   .ornament__swirl {
     opacity: 0;

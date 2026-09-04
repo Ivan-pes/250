@@ -1,10 +1,4 @@
-/* ══════════════════════════════════════════════════════════════
-   Основа: переменные, сброс, типографика, общие элементы.
-   Стили секций лежат рядом со своими компонентами в src/components.
-   ══════════════════════════════════════════════════════════════ */
-
 :root {
-  /* цвет — тёплый белый, глубокий графит и один сдержанный акцент */
   --bg: #faf8f5;
   --bg-tint: #f2eee8;
   --surface: #ffffff;
@@ -13,7 +7,7 @@
   --ink-45: #8a847b;
   --line: rgba(28, 26, 23, 0.14);
   --line-soft: rgba(28, 26, 23, 0.08);
-  /* нежная карамель — заливка кнопок; тёмная — текст и подчёркивания */
+
   --caramel: #f0d5b4;
   --caramel-deep: #e4bd93;
   --caramel-soft: #fbf1e5;
@@ -53,13 +47,12 @@ body {
   font-size: 16px;
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
-  /* clip, а не hidden: hidden ломает sticky-шапку */
+
   overflow-x: clip;
-  /* без серой вспышки по нажатию — на телефоне это главный признак «сайта на коленке» */
+
   -webkit-tap-highlight-color: transparent;
 }
 
-/* см. hooks/useBodyLock.js — страница замирает целиком, а не только скроллом */
 body.is-locked {
   position: fixed;
   left: 0;
@@ -81,8 +74,6 @@ input, textarea, select { font: inherit; color: inherit; }
   border-radius: 2px;
 }
 
-/* ─────────────────────────  СЕТКА  ───────────────────────── */
-
 .container {
   width: min(100% - var(--pad) * 2, var(--maxw));
   margin-inline: auto;
@@ -101,8 +92,6 @@ input, textarea, select { font: inherit; color: inherit; }
   border: 0;
   margin: 0;
 }
-
-/* ─────────────────────────  ТИПОГРАФИКА  ───────────────────────── */
 
 .display {
   font-family: var(--font-display);
@@ -139,8 +128,6 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
   }
   .section-head--split .lead { margin-top: 0; padding-bottom: 6px; }
 }
-
-/* ─────────────────────────  КНОПКИ  ───────────────────────── */
 
 .btn {
   display: inline-flex;
@@ -182,7 +169,6 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
 
 .btn[disabled] { opacity: 0.55; cursor: default; }
 
-/* текстовая ссылка с подчёркиванием, которое живёт */
 .link {
   position: relative;
   padding-bottom: 2px;
@@ -193,14 +179,11 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
 
 .link:hover { color: var(--accent); box-shadow: inset 0 -1px 0 var(--accent); }
 
-/* ─────────────────────────  ФОТО  ───────────────────────── */
-
 .photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* пока кадр не пришёл, здесь лежит его размытое превью (см. ui/Photo.jsx):
-     картинка не «вспыхивает» белым, а проявляется из своего же цвета */
+
   background-color: var(--bg-tint);
   background-size: cover;
   background-position: center;
@@ -214,8 +197,6 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
   background: var(--bg-tint);
 }
 
-/* ─────────────────────────  ПОЯВЛЕНИЕ  ───────────────────────── */
-
 .reveal {
   opacity: 0;
   transform: translateY(12px);
@@ -228,8 +209,6 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
   opacity: 1;
   transform: none;
 }
-
-/* ─────────────────────────  СЛУЖЕБНОЕ  ───────────────────────── */
 
 .skip-link {
   position: fixed;
@@ -258,12 +237,6 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
   border: 0;
 }
 
-/* ─────────────────────────  ТЕЛЕФОН  ─────────────────────────
-   Общие правила, из-за которых страница перестаёт быть «сжатым
-   десктопом»: воздух между разделами, кнопки под палец,
-   безопасные поля у экранов с вырезом.
-   ───────────────────────────────────────────────────────────── */
-
 @media (max-width: 767px) {
   :root {
     --pad: 22px;
@@ -277,5 +250,4 @@ h3.display { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.16; }
   .section-head .lead { margin-top: 14px; font-size: 15px; }
 
   h2.display { font-size: clamp(28px, 8vw, 38px); }
-
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-/** true, когда страницу пролистали дальше указанной отметки. */
 export function useScrolled(offset = 24) {
   const [scrolled, setScrolled] = useState(false);
 

@@ -4,7 +4,6 @@ import Reveal from '@/components/ui/Reveal.jsx';
 import Section from '@/components/ui/Section.jsx';
 import { about } from '@/data/content.js';
 
-/** Обо мне: портрет, короткий рассказ и три конкретных обещания. */
 export default function About() {
   return (
     <Section id="about" className="about">

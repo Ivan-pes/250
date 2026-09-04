@@ -1,20 +1,4 @@
-/**
- * ЕДИНСТВЕННОЕ МЕСТО, ГДЕ ЖИВЁТ ТЕКСТ САЙТА.
- *
- * Меняете здесь — меняется на странице. Компоненты трогать не нужно.
- *
- * СЕЙЧАС ЗАГОЛОВКИ И ПОДПИСИ — НАСТОЯЩИЕ, А ДЛИННЫЕ ТЕКСТЫ — РЫБА
- * (Lorem ipsum): так видно структуру страницы, но ничего не надо вычитывать.
- *
- * У фотографий поле `src`. Сейчас там временные снимки из /public/images —
- * поставьте вместо них свои: положите файл в ту же папку и впишите
- * '/images/имя-файла.jpg'. Если поставить null, на месте кадра будет серая
- * заглушка нужной пропорции — вёрстка не поедет.
- */
-
 import { RATIO } from '@/lib/placeholder.js';
-
-/* ─────────────────────────  ОБЩЕЕ  ───────────────────────── */
 
 export const brand = {
   name: 'Хуй Горбатый',
@@ -28,7 +12,6 @@ export const brand = {
   hours: 'Всегда отвечу',
 };
 
-/** Пункты меню. `id` — это id секции на странице. */
 export const nav = [
   { id: 'about', label: 'Обо мне' },
   { id: 'packages', label: 'Что входит' },
@@ -40,8 +23,6 @@ export const nav = [
 export const socials = [
   { label: 'Instagram', href: 'https://instagram.com/gorbaty.photo' },
 ];
-
-/* ─────────────────────────  ПЕРВЫЙ ЭКРАН  ───────────────────────── */
 
 export const hero = {
   title: 'Ваш день, как он был',
@@ -61,8 +42,6 @@ export const hero = {
     alt: 'Жених и невеста идут по траве в закатном свете',
   },
 };
-
-/* ─────────────────────────  ОБО МНЕ  ───────────────────────── */
 
 export const about = {
   title: 'Обо мне',
@@ -84,11 +63,6 @@ export const about = {
     alt: 'Портрет фотографа с камерой',
   },
 };
-
-/* ─────────────────────────  ЧТО ВХОДИТ  ─────────────────────────
-   Три формата съёмки. Поле `icon` выбирает рисунок из набора
-   src/components/sections/Packages.jsx: 'camera', 'church' или 'glasses'.
-   ──────────────────────────────────────────────────────────────── */
 
 export const packages = {
   title: 'Что входит',
@@ -117,8 +91,6 @@ export const packages = {
   ],
 };
 
-/* ─────────────────────────  ПОРТФОЛИО  ───────────────────────── */
-
 export const portfolio = {
   title: 'Избранные кадры',
   lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
@@ -131,7 +103,7 @@ export const portfolio = {
     { id: 'party', label: 'Вечер' },
     { id: 'love', label: 'Love story' },
   ],
-  /** Первые 6 показываются сразу, остальные — по кнопке. */
+
   items: [
     { title: 'Утро в Ла-Оротаве', place: 'Ла-Оротава, 2025', cat: 'morning', src: '/images/01-morning.jpg', ratio: RATIO.portrait },
     { title: 'Кольца и тишина', place: 'Гарачико, 2025', cat: 'ceremony', src: '/images/02-rings.jpg', ratio: RATIO.landscape },
@@ -151,8 +123,6 @@ export const portfolio = {
   moreLabel: 'Показать ещё',
   visible: 6,
 };
-
-/* ─────────────────────────  ОТЗЫВЫ  ───────────────────────── */
 
 export const reviews = {
   title: 'Что говорят пары',
@@ -195,8 +165,6 @@ export const reviews = {
     },
   ],
 };
-
-/* ─────────────────────────  ВОПРОСЫ  ───────────────────────── */
 
 export const faq = {
   title: 'Вопросы',
@@ -241,8 +209,6 @@ export const faq = {
   ],
 };
 
-/* ─────────────────────────  КОНТАКТЫ  ───────────────────────── */
-
 export const contact = {
   title: 'Связаться',
   lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
@@ -260,8 +226,6 @@ export const contact = {
       + 'minim veniam.',
   },
 };
-
-/* ─────────────────────────  ФУТЕР  ───────────────────────── */
 
 export const footer = {
   line: 'Свадебная фотография на Тенерифе',

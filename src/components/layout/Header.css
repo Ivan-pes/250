@@ -1,5 +1,3 @@
-/* На телефоне шапка НЕ липкая — уезжает вместе со страницей и не съедает
-   верх экрана у аппаратов с «бровью». Липкой она становится с 900px. */
 .header {
   position: relative;
   z-index: 100;
@@ -15,8 +13,6 @@
   min-height: var(--header-h);
 }
 
-/* ── логотип ── */
-
 .header__brand {
   flex-shrink: 0;
   font-family: var(--font-display);
@@ -24,8 +20,6 @@
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
-
-/* ── меню ── */
 
 .header__nav { display: none; gap: 26px; }
 
@@ -58,8 +52,6 @@
 .header__phone:hover { color: var(--ink); }
 .header__cta { min-height: 42px; padding-inline: 20px; }
 
-/* ── бургер ── */
-
 .burger {
   display: grid;
   gap: 6px;
@@ -76,7 +68,6 @@
   background: currentColor;
 }
 
-/* на узком экране логотип, кнопка и бургер стоят впритык — ужимаем */
 @media (max-width: 719px) {
   .header__brand { font-size: 18px; }
   .header__cta {
@@ -86,13 +77,6 @@
   }
   .burger { width: 40px; height: 40px; margin-right: -8px; }
 }
-
-/* ─────────────────────────────────────────────────────────────
-   МЕНЮ НА ТЕЛЕФОНЕ
-   Отдельный экран поверх сайта: крупные засечки, номера разделов,
-   контакты и соцсети внизу. Лежит вне .header — иначе `backdrop-filter`
-   шапки схлопнул бы его до её высоты.
-   ───────────────────────────────────────────────────────────── */
 
 .drawer {
   position: fixed;
@@ -119,8 +103,6 @@
   min-height: 100%;
   padding-block: 0 calc(28px + env(safe-area-inset-bottom));
 }
-
-/* ── верхняя строка меню: имя и крестик ── */
 
 .drawer__top {
   display: flex;
@@ -156,8 +138,6 @@
 
 .drawer__close span:first-child { transform: rotate(45deg); }
 .drawer__close span:last-child { transform: rotate(-45deg); }
-
-/* ── разделы ── */
 
 .drawer__nav { display: flex; flex-direction: column; }
 
@@ -209,7 +189,6 @@
   color: var(--ink-70);
 }
 
-/* содержимое въезжает по очереди — меню открывается, а не просто появляется */
 @media (prefers-reduced-motion: no-preference) {
   .drawer__link,
   .drawer__foot {
@@ -231,7 +210,6 @@
   .header__phone { display: block; }
 }
 
-/* с планшета шапка снова липкая и подкрашивается при прокрутке */
 @media (min-width: 900px) {
   .header {
     position: sticky;

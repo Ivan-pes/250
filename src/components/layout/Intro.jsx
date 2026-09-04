@@ -5,20 +5,6 @@ import { brand, hero } from '@/data/content.js';
 import { useBodyLock } from '@/hooks/useBodyLock.js';
 import { cx } from '@/lib/cx.js';
 
-/**
- * Заставка перед сайтом: во весь экран видео (или кадр) и надпись
- * «Продолжить» чуть ниже середины. По нажатию на неё заставка
- * растворяется и открывается страница.
- *
- * ВИДЕО. Положите файл в public/video/intro.mp4 — и он появится здесь сам.
- * Пока файла нет, фоном стоит фотография с медленным наездом: заставка
- * работает и выглядит законченной ещё до того, как видео снято.
- * Требования к файлу: mp4 (H.264), без звука, 8–15 секунд, до ~8 МБ —
- * иначе первый экран будет долго думать на мобильном интернете.
- *
- * Показывается один раз за визит: вернулись на страницу — заставки нет.
- */
-
 const VIDEO = '/video/intro.mp4';
 const SEEN_KEY = 'intro-seen';
 
@@ -42,13 +28,12 @@ export default function Intro() {
       if (already) return already;
       try {
         sessionStorage.setItem(SEEN_KEY, '1');
-      } catch { /* приватный режим — просто покажем заставку ещё раз */ }
+      } catch {  }
       setTimeout(() => setOpen(false), 700);
       return true;
     });
   }, []);
 
-  // Esc закрывает так же, как кнопка
   useEffect(() => {
     if (!open) return undefined;
 

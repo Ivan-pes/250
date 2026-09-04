@@ -12,13 +12,6 @@ import {
   Contact,
 } from '@/components/sections';
 
-/**
- * Порядок секций на странице.
- * Убрать блок — удалить строку; поменять местами — переставить.
- *
- * Между разделами стоят узоры-разделители (src/components/ui/Ornament.jsx).
- * `tinted` — когда узор остаётся на подкрашенном фоне соседней секции.
- */
 export default function App() {
   return (
     <>

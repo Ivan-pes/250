@@ -7,7 +7,6 @@ import SectionHead from '@/components/ui/SectionHead.jsx';
 import { faq } from '@/data/content.js';
 import { cx } from '@/lib/cx.js';
 
-/** Вопросы и ответы. Открыт всегда один — так список читается сверху вниз. */
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0);
 

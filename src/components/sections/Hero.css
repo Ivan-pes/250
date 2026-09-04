@@ -2,7 +2,6 @@
   padding-block: 0 clamp(28px, 4vw, 44px);
 }
 
-/* карточка: фотография во всю ширину колонки со скруглением */
 .hero__card {
   position: relative;
   display: flex;
@@ -28,7 +27,6 @@
   object-fit: cover;
 }
 
-/* затемнение снизу — под текстом, чтобы он читался на любом кадре */
 .hero__media::after {
   content: '';
   position: absolute;
@@ -50,7 +48,6 @@
   font-size: clamp(36px, 5.6vw, 68px);
 }
 
-/* текст слева, кнопка справа — как в макете */
 .hero__bottom {
   display: flex;
   align-items: flex-end;
@@ -89,8 +86,6 @@
   line-height: 1.4;
   color: var(--ink-45);
 }
-
-/* ── телефон: кнопка уходит под текст и растягивается ── */
 
 @media (max-width: 719px) {
   .hero__card {

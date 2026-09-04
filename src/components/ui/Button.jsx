@@ -1,9 +1,5 @@
 import { cx } from '@/lib/cx.js';
 
-/**
- * Кнопка или ссылка с одинаковым видом.
- * @param {{href?: string, variant?: 'primary'|'ghost', type?: string}} props
- */
 export default function Button({
   href,
   variant = 'ghost',

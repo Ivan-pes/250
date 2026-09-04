@@ -5,12 +5,6 @@ import './Lightbox.css';
 import Photo from './Photo.jsx';
 import { useBodyLock } from '@/hooks/useBodyLock.js';
 
-/**
- * Просмотр кадра во весь экран.
- * Управление с клавиатуры: Esc — закрыть, ← → — соседние кадры.
- *
- * @param {{items: object[], index: number|null, onClose: () => void, onChange: (i: number) => void}} props
- */
 export default function Lightbox({ items, index, onClose, onChange }) {
   const isOpen = index !== null && index >= 0 && index < items.length;
   const dialogRef = useRef(null);
@@ -23,7 +17,6 @@ export default function Lightbox({ items, index, onClose, onChange }) {
     [index, items.length, onChange],
   );
 
-  // листание пальцем: короткий горизонтальный жест = соседний кадр
   const onTouchStart = (event) => {
     const touch = event.changedTouches[0];
     swipeStart.current = { x: touch.clientX, y: touch.clientY };
@@ -38,12 +31,10 @@ export default function Lightbox({ items, index, onClose, onChange }) {
     const dx = touch.clientX - from.x;
     const dy = touch.clientY - from.y;
 
-    // вертикальные движения оставляем прокрутке и закрытию
     if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
     step(dx < 0 ? 1 : -1);
   };
 
-  // фокус забираем при открытии и возвращаем на карточку при закрытии
   useEffect(() => {
     if (!isOpen) return undefined;
 
@@ -53,7 +44,6 @@ export default function Lightbox({ items, index, onClose, onChange }) {
     return () => opener?.focus?.();
   }, [isOpen]);
 
-  // клавиатура: Esc закрывает, стрелки листают
   useEffect(() => {
     if (!isOpen) return undefined;
 

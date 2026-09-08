@@ -1,9 +1,11 @@
+/* Заставка: чистый кадр видео и тонкая рамка из линеек по краям. */
+
 .intro {
   position: fixed;
   inset: 0;
   z-index: 300;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
 
   min-height: 100lvh;
   overflow: hidden;
@@ -26,10 +28,12 @@
   pointer-events: none;
 }
 
-.intro.is-leaving .intro__body {
-  transform: translateY(-16px);
+.intro.is-leaving .intro__frame {
+  transform: translateY(-14px);
   transition: transform 0.65s var(--ease);
 }
+
+/* Видео */
 
 .intro__media {
   position: absolute;
@@ -46,12 +50,12 @@
 }
 
 .intro__poster {
-  animation: intro-zoom 18s var(--ease) forwards;
+  animation: intro-zoom 24s var(--ease) forwards;
 }
 
 @keyframes intro-zoom {
   from { transform: scale(1); }
-  to { transform: scale(1.09); }
+  to { transform: scale(1.08); }
 }
 
 .intro__video {
@@ -61,48 +65,104 @@
 
 .intro__video.is-ready { opacity: 1; }
 
+/* Затемнение только у краёв, середина кадра остаётся чистой. */
 .intro__media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    120% 80% at 50% 50%,
-    rgba(18, 16, 14, 0.25) 0%,
-    rgba(18, 16, 14, 0.72) 100%
-  );
+  background:
+    linear-gradient(to bottom, rgba(12, 11, 10, 0.5) 0%, transparent 24%),
+    linear-gradient(to top, rgba(12, 11, 10, 0.5) 0%, transparent 26%);
 }
 
-.intro__body {
+/* Рамка */
+
+/* Рамка идёт во всю ширину экрана, как у mosaert, — только отступы по краям. */
+.intro__frame {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: clamp(22px, 3.4vw, 45px);
+  padding-top: clamp(22px, 5vh, 40px);
+  padding-bottom: calc(clamp(22px, 5vh, 40px) + env(safe-area-inset-bottom));
+}
+
+.intro__top {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: clamp(14px, 2.4vh, 20px);
+}
+
+.intro__bottom {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: 16px;
+  gap: clamp(10px, 1.8vh, 16px);
+  padding-bottom: clamp(16px, 2.6vh, 24px);
+}
 
-  margin-top: clamp(70px, 16vh, 150px);
-  padding: var(--pad);
-  text-align: center;
+/* Две линейки: над верхней строкой и под нижней. */
+.intro__top::before,
+.intro__bottom::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(250, 248, 245, 0.42);
+}
+
+.intro__top::before { top: 0; }
+.intro__bottom::after { bottom: 0; }
+
+/* Подписи */
+
+.intro__logo,
+.intro__city,
+.intro__enter {
+  font-size: clamp(11px, 3vw, 13px);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro__logo { display: grid; }
+
+.intro__city {
+  text-align: right;
+  color: rgba(250, 248, 245, 0.6);
 }
 
 .intro__enter {
-  padding: 4px;
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5.5vw, 52px);
-  line-height: 1.1;
+  padding: 6px 4px;
   color: var(--bg);
   transition: opacity 0.3s var(--ease);
 }
 
 .intro__enter:hover,
-.intro__enter:focus-visible { opacity: 0.72; }
+.intro__enter:focus-visible { opacity: 0.65; }
 
-.intro__role {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(250, 248, 245, 0.62);
+/* Знак из общего набора орнаментов, только светлый и поменьше.
+   Свой показ по скроллу ему тут не нужен — появлением управляет заставка. */
+.intro .ornament {
+  width: auto;
+  padding-block: 0;
+  color: var(--bg);
+  opacity: 1;
+  transform: none;
+}
+
+.intro .ornament__mark {
+  width: clamp(170px, 50vw, 260px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .intro { animation: none; }
+  .intro,
   .intro__poster { animation: none; }
 }

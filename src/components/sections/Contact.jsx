@@ -44,7 +44,7 @@ export default function Contact() {
       setStatus('done');
     } catch {
       setStatus('idle');
-      setErrors({ form: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' });
+      setErrors({ form: contact.error });
     }
   };
 
@@ -82,10 +82,7 @@ export default function Contact() {
                 {status === 'sending' ? contact.sending : contact.submit}
               </button>
 
-              <p className="contact__hint">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore.
-              </p>
+              <p className="contact__hint">{contact.hint}</p>
             </form>
           )}
         </Reveal>

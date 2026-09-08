@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import './Intro.css';
+import Ornament from '@/components/ui/Ornament.jsx';
 import { brand, hero } from '@/data/content.js';
 import { useBodyLock } from '@/hooks/useBodyLock.js';
 import { cx } from '@/lib/cx.js';
@@ -50,9 +51,7 @@ export default function Intro() {
   return (
     <div className={cx('intro', leaving && 'is-leaving')}>
       <div className="intro__media">
-        {hero.photo.src && (
-          <img className="intro__poster" src={hero.photo.src} alt="" aria-hidden="true" />
-        )}
+        <img className="intro__poster" src={hero.photo.src} alt="" aria-hidden="true" />
 
         <video
           className={cx('intro__video', hasVideo && 'is-ready')}
@@ -67,12 +66,23 @@ export default function Intro() {
         />
       </div>
 
-      <div className="intro__body">
-        <button className="intro__enter" type="button" onClick={close}>
-          Продолжить
-        </button>
+      <div className="intro__frame">
+        <div className="intro__top">
+          <p className="intro__logo">
+            <span>{brand.name}</span>
+            <span>{brand.role}</span>
+          </p>
 
-        <p className="intro__role">{brand.role} · {brand.city}</p>
+          <p className="intro__city">{brand.city}</p>
+        </div>
+
+        <div className="intro__bottom">
+          <Ornament variant="quatrefoil" />
+
+          <button className="intro__enter" type="button" onClick={close}>
+            Продолжить
+          </button>
+        </div>
       </div>
     </div>
   );

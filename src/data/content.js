@@ -1,167 +1,198 @@
 import { RATIO } from '@/lib/placeholder.js';
 
 export const brand = {
-  name: 'Хуй Горбатый',
-  short: 'ХГ',
-  role: 'Гей фотограф',
+  name: 'Валентин',
+  short: 'В',
+  role: 'Проф фотограф',
   city: 'Тенерифе',
-  email: 'Валя@gorbaty.photo',
+  email: 'valentin@photo.es',
   phone: '+34 612 345 678',
-  instagram: '@gorbaty.photo',
-  instagramUrl: 'https://instagram.com/gorbaty.photo',
-  hours: 'Всегда отвечу',
+  instagram: '@valentin.photo',
+  instagramUrl: 'https://instagram.com/valentin.photo',
+  hours: 'Отвечаю в течение дня',
 };
 
 export const nav = [
   { id: 'about', label: 'Обо мне' },
-  { id: 'packages', label: 'Что входит' },
+  { id: 'packages', label: 'Что снимаю' },
   { id: 'portfolio', label: 'Портфолио' },
   { id: 'reviews', label: 'Отзывы' },
   { id: 'faq', label: 'Вопросы' },
 ];
 
 export const socials = [
-  { label: 'Instagram', href: 'https://instagram.com/gorbaty.photo' },
+  { label: 'Instagram', href: 'https://instagram.com/valentin.photo' },
 ];
 
 export const hero = {
   title: 'Ваш день, как он был',
   lead:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
-    + 'tempor incididunt ut labore et dolore magna aliqua.',
+    'Выездной фотограф для пар, мероприятий и бизнеса. Приезжаю туда, где всё '
+    + 'происходит, со своим светом — и снимаю так, чтобы день остался живым, '
+    + 'а не разложенным по позам.',
   actions: [
     { label: 'Портфолио', href: '#portfolio', primary: true },
   ],
   facts: [
-    { value: '6 лет', label: 'снимаю свадьбы' },
+    { value: '6 лет', label: 'снимаю на выезде' },
     { value: '3–5 недель', label: 'до готовой галереи' },
   ],
   photo: {
     src: '/images/hero.jpg',
     ratio: RATIO.portrait,
-    alt: 'Жених и невеста идут по траве в закатном свете',
+    alt: 'Жених и невеста обнимаются в закатном свете, фата тянется по траве',
   },
 };
 
 export const about = {
   title: 'Обо мне',
   text: [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-      + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
-      + 'exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat '
-      + 'nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui '
-      + 'officia deserunt mollit anim id est laborum.',
-    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque '
-      + 'laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi '
-      + 'architecto beatae vitae dicta sunt explicabo.',
+    'Меня зовут Валентин. Начинал маркетологом, потом открыл своё дело и несколько '
+      + 'лет сам вёл ему соцсети: снимал, монтировал, писал тексты. Фотография была '
+      + 'частью работы, а потом стала работой.',
+    'Дальше были рестораны и частные мероприятия: меню и интерьеры, дни рождения, '
+      + 'корпоративы. Снимать в зале, где нельзя мешать людям и нет нормального света, '
+      + 'научило большему, чем любой курс.',
+    'Сейчас снимаю на выезде — пары, семьи, бизнес, праздники. Почти не режиссирую: '
+      + 'пара минут в начале, чтобы вы привыкли к камере, дальше просто рядом. Позу '
+      + 'поправлю одним словом, если нужно. Не знаете, где снимать, — предложу места, '
+      + 'за годы на острове их набралось на любую погоду.',
   ],
-  signature: 'Хуй',
+  signature: 'Валентин',
   photo: {
     src: '/images/about.jpg',
     ratio: RATIO.portrait,
-    alt: 'Портрет фотографа с камерой',
+    alt: 'Валентин на улице у мотоцикла в вечернем свете',
   },
 };
 
 export const packages = {
-  title: 'Что входит',
-  lead:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-    + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  title: 'Что снимаю',
+  lead: 'Четыре направления, выезд со своим светом входит в каждое.',
+  linkLabel: 'Смотреть кадры',
   items: [
     {
+      cat: 'couples',
+      title: 'Для пар',
+      icon: 'rings',
+      text: 'Свадьба, помолвка или просто вечер вдвоём. От утренних сборов до '
+        + 'последнего танца — или короткая прогулка на пару часов, если хочется '
+        + 'без большого дня.',
+    },
+    {
+      cat: 'family',
+      title: 'Для семьи',
+      icon: 'house',
+      text: 'Дома, на прогулке или на берегу. Детей не заставляю сидеть смирно: '
+        + 'пусть бегают, а я поймаю. Часа-полутора обычно хватает, пока всем '
+        + 'не надоело.',
+    },
+    {
+      cat: 'business',
+      title: 'Для бизнеса',
       icon: 'camera',
-      title: 'Полный день',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-        + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.',
+      text: 'Портреты команды для сайта, интерьеры, предметка и репортаж с рабочего '
+        + 'дня. Свет привожу свой, поэтому кадры получаются одинаковыми даже в '
+        + 'тёмном офисе.',
     },
     {
-      icon: 'church',
-      title: 'Церемония',
-      text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed '
-        + 'quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    },
-    {
+      cat: 'events',
+      title: 'Для мероприятий',
       icon: 'glasses',
-      title: 'Вечер',
-      text: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, '
-        + 'adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.',
+      text: 'Корпоратив, конференция, день рождения, открытие. Работаю незаметно: '
+        + 'сцена, гости, детали зала. Пару десятков кадров отдаю на следующий день, '
+        + 'пока событие ещё обсуждают.',
     },
   ],
 };
 
 export const portfolio = {
   title: 'Избранные кадры',
-  lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-    + 'incididunt ut labore et dolore magna aliqua.',
+  lead: 'Кадры из разных съёмок — от утра невесты до конференции на тысячу человек. '
+    + 'Выберите раздел или напишите, и я пришлю галерею целиком.',
   categories: [
     { id: 'all', label: 'Все' },
-    { id: 'morning', label: 'Сборы' },
-    { id: 'ceremony', label: 'Церемония' },
-    { id: 'walk', label: 'Прогулка' },
-    { id: 'party', label: 'Вечер' },
-    { id: 'love', label: 'Love story' },
+    { id: 'couples', label: 'Пары' },
+    { id: 'family', label: 'Семья' },
+    { id: 'business', label: 'Бизнес' },
+    { id: 'events', label: 'Мероприятия' },
   ],
 
   items: [
-    { title: 'Утро в Ла-Оротаве', place: 'Ла-Оротава, 2025', cat: 'morning', src: '/images/01-morning.jpg', ratio: RATIO.portrait },
-    { title: 'Кольца и тишина', place: 'Гарачико, 2025', cat: 'ceremony', src: '/images/02-rings.jpg', ratio: RATIO.landscape },
-    { title: 'Церемония у воды', place: 'Лос-Гигантес, 2025', cat: 'ceremony', src: '/images/03-shore.jpg', ratio: RATIO.portrait },
-    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'party', src: '/images/04-dance.jpg', ratio: RATIO.portrait },
-    { title: 'Закат за Тейде', place: 'Тейде, 2024', cat: 'walk', src: '/images/05-sunset.jpg', ratio: RATIO.landscape },
-    { title: 'Платье у окна', place: 'Ла-Лагуна, 2024', cat: 'morning', src: '/images/06-dress.jpg', ratio: RATIO.portrait },
-    { title: 'Клятвы', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'ceremony', src: '/images/07-vows.jpg', ratio: RATIO.portrait },
-    { title: 'Смех между кадрами', place: 'Санта-Крус, 2024', cat: 'love', src: '/images/08-laugh.jpg', ratio: RATIO.landscape },
-    { title: 'Бенгальские огни', place: 'Санта-Крус, 2024', cat: 'party', src: '/images/09-sparks.jpg', ratio: RATIO.landscape },
-    { title: 'Перед выходом', place: 'Эль-Медано, 2024', cat: 'morning', src: '/images/10-mirror.jpg', ratio: RATIO.portrait },
-    { title: 'Он и она, Анага', place: 'Анага, 2023', cat: 'walk', src: '/images/11-anaga.jpg', ratio: RATIO.landscape },
-    { title: 'Последний танец', place: 'Ла-Гомера, 2023', cat: 'party', src: '/images/12-lastdance.jpg', ratio: RATIO.landscape },
-    { title: 'Под аркой', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/13-arch.jpg', ratio: RATIO.portrait },
-    { title: 'Сумерки', place: 'Ла-Лагуна, 2023', cat: 'love', src: '/images/14-dusk.jpg', ratio: RATIO.portrait },
+    { title: 'Церемония у воды', place: 'Лос-Гигантес, 2025', cat: 'couples', src: '/images/couples-01.jpg', ratio: RATIO.portrait },
+    { title: 'Под фатой', place: 'Ла-Лагуна, 2025', cat: 'couples', src: '/images/couples-02.jpg', ratio: RATIO.portrait },
+    { title: 'Смех между кадрами', place: 'Санта-Крус, 2024', cat: 'couples', src: '/images/couples-03.jpg', ratio: RATIO.landscape },
+    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'couples', src: '/images/couples-04.jpg', ratio: RATIO.portrait },
+    { title: 'Прогулка в Анаге', place: 'Анага, 2024', cat: 'couples', src: '/images/couples-05.jpg', ratio: RATIO.landscape },
+    { title: 'Танцы до утра', place: 'Ла-Оротава, 2024', cat: 'couples', src: '/images/couples-06.jpg', ratio: RATIO.landscape },
+    { title: 'Love story у Тейде', place: 'Тейде, 2025', cat: 'couples', src: '/images/couples-07.jpg', ratio: RATIO.portrait },
+    { title: 'Закат у воды', place: 'Эль-Медано, 2024', cat: 'couples', src: '/images/couples-08.jpg', ratio: RATIO.landscape },
+    { title: 'Утро невесты', place: 'Ла-Оротава, 2025', cat: 'couples', src: '/images/couples-09.jpg', ratio: RATIO.portrait },
+    { title: 'Сумерки на берегу', place: 'Эль-Медано, 2023', cat: 'couples', src: '/images/couples-10.jpg', ratio: RATIO.portrait },
+
+    { title: 'Семья в поле', place: 'Ла-Лагуна, 2025', cat: 'family', src: '/images/family-01.jpg', ratio: RATIO.portrait },
+    { title: 'Воскресная прогулка', place: 'Ла-Оротава, 2024', cat: 'family', src: '/images/family-02.jpg', ratio: RATIO.portrait },
+    { title: 'Первое море', place: 'Пуэрто-де-ла-Крус, 2025', cat: 'family', src: '/images/family-03.jpg', ratio: RATIO.landscape },
+    { title: 'Все свои', place: 'Гарачико, 2024', cat: 'family', src: '/images/family-04.jpg', ratio: RATIO.landscape },
+
+    { title: 'Портрет для сайта', place: 'Санта-Крус, 2025', cat: 'business', src: '/images/business-01.jpg', ratio: RATIO.portrait },
+    { title: 'Рабочий день', place: 'Санта-Крус, 2025', cat: 'business', src: '/images/business-02.jpg', ratio: RATIO.landscape },
+    { title: 'Интерьер ресторана', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'business', src: '/images/business-03.jpg', ratio: RATIO.landscape },
+    { title: 'Предметная съёмка', place: 'Студия, 2025', cat: 'business', src: '/images/business-04.jpg', ratio: RATIO.landscape },
+
+    { title: 'Юбилей компании', place: 'Санта-Крус, 2024', cat: 'events', src: '/images/events-01.jpg', ratio: RATIO.landscape },
+    { title: 'Конференция', place: 'Адехе, 2025', cat: 'events', src: '/images/events-02.jpg', ratio: RATIO.landscape },
+    { title: 'День рождения', place: 'Ла-Лагуна, 2024', cat: 'events', src: '/images/events-03.jpg', ratio: RATIO.portrait },
+    { title: 'Вечеринка на набережной', place: 'Лос-Кристианос, 2024', cat: 'events', src: '/images/events-04.jpg', ratio: RATIO.landscape },
   ],
   moreLabel: 'Показать ещё',
   visible: 6,
 };
 
 export const reviews = {
-  title: 'Что говорят пары',
+  title: 'Что говорят',
   items: [
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-        + 'incididunt ut labore et dolore magna aliqua veniam.',
+      text: 'Мы боялись, что весь день будем позировать. В итоге Валентина почти не '
+        + 'замечали, а на фотографиях оказалось всё: и как я реву на клятвах, и как '
+        + 'дядя Витя танцует с тортом.',
       author: 'Катя и Дима',
-      meta: 'Июнь 2025, Коста-Адехе',
+      meta: 'Свадьба, июнь 2025',
     },
     {
-      text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut '
-        + 'aliquip ex ea commodo consequat duis aute irure.',
+      text: 'Снимали портреты для сайта на всю команду за одно утро. Валентин привёз '
+        + 'свет, поставил всех за минуту и вытащил живые лица даже из тех, кто ненавидит '
+        + 'фотографироваться.',
+      author: 'Ирина, «Маре»',
+      meta: 'Съёмка для бизнеса, март 2025',
+    },
+    {
+      text: 'Приехали расписываться вдвоём, без гостей. Валентин весь день был как '
+        + 'старый друг с камерой: подсказал, где спрятаться от ветра, и нашёл ту самую '
+        + 'бухту на закате.',
       author: 'Марина и Сергей',
-      meta: 'Сентябрь 2024, Гарачико',
+      meta: 'Свадьба, сентябрь 2024',
     },
     {
-      text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu '
-        + 'fugiat nulla pariatur excepteur sint occaecat.',
-      author: 'Аня и Паша',
-      meta: 'Август 2024, Ла-Оротава',
-    },
-    {
-      text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia '
-        + 'deserunt mollit anim id est laborum sed perspiciatis.',
-      author: 'Лена и Артём',
-      meta: 'Март 2024, Пуэрто-де-ла-Крус',
-    },
-    {
-      text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium '
-        + 'doloremque laudantium totam rem aperiam eaque.',
+      text: 'С двумя детьми любая съёмка — это хаос. Валентин просто пошёл с нами гулять '
+        + 'и снимал этот хаос два часа. Такие мы и есть, и фотографии наконец про нас, '
+        + 'а не про красивые позы.',
       author: 'Оля и Никита',
-      meta: 'Октябрь 2023, Ла-Лагуна',
+      meta: 'Семейная съёмка, октябрь 2024',
     },
     {
-      text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed '
-        + 'quia consequuntur magni dolores eos.',
+      text: 'Конференция на четыреста человек, семь часов подряд. Черновые кадры были '
+        + 'у нас на следующее утро, полный архив — через неделю. Ни одного важного '
+        + 'спикера не пропустил.',
+      author: 'Андрей, оргкомитет',
+      meta: 'Мероприятие, май 2024',
+    },
+    {
+      text: 'Списывались полгода до свадьбы, и на каждый мой панический вопрос был '
+        + 'нормальный человеческий ответ. За день до — прислал расписание, чтобы мы '
+        + 'ничего не держали в голове.',
       author: 'Вера и Максим',
-      meta: 'Июль 2023, Ла-Гомера',
+      meta: 'Свадьба, июль 2023',
     },
   ],
 };
@@ -171,63 +202,69 @@ export const faq = {
   items: [
     {
       q: 'Сколько это стоит?',
-      a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-        + 'incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud '
-        + 'exercitation ullamco laboris.',
+      a: 'Цена зависит от количества часов и от того, нужно ли ехать на другой конец '
+        + 'острова. Напишите дату и примерный план — пришлю актуальный прайс и скажу, '
+        + 'какой формат вам подойдёт, даже если это будет не самый дорогой.',
     },
     {
       q: 'За сколько бронировать дату?',
-      a: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu '
-        + 'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa '
-        + 'qui officia deserunt.',
+      a: 'Свадьбы летом и в начале осени разбирают за полгода-год, съёмку для бизнеса '
+        + 'или семьи обычно ставлю в график за две-три недели. Если время горит — всё '
+        + 'равно напишите, иногда даты освобождаются.',
     },
     {
-      q: 'Мы не умеем позировать?',
-      a: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium '
-        + 'doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.',
+      q: 'Мы не умеем позировать',
+      a: 'И не надо. В начале я дам пару простых занятий — идти, обниматься, '
+        + 'разговаривать, — этого хватает, чтобы вы перестали думать о камере. Всё '
+        + 'остальное я ловлю сам, а если что-то поправить, скажу одним словом.',
     },
     {
       q: 'Когда будут фотографии?',
-      a: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia '
-        + 'consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+      a: 'Двадцать-тридцать кадров пришлю в течение недели, а с мероприятий — на '
+        + 'следующий день. Полная галерея готова за 3–5 недель в сезон и быстрее зимой. '
+        + 'Все фото обработаны, брак и дубли я убираю сам.',
     },
     {
       q: 'Отдаёте ли исходники?',
-      a: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, '
-        + 'adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.',
+      a: 'Нет, отдаю готовую работу. Исходник — это половина дела, цвет и свет я довожу '
+        + 'сам, и именно это вы видели в портфолио. Если нужен конкретный кадр в другом '
+        + 'кадрировании или чёрно-белым — сделаю.',
     },
     {
       q: 'А если дождь или ветер?',
-      a: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium '
-        + 'voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.',
+      a: 'На острове погода меняется за полчаса, поэтому у меня всегда есть запасное '
+        + 'место неподалёку. Дождь — это не срыв съёмки, а другой свет: мокрая мостовая '
+        + 'и зонт часто дают лучшие кадры дня.',
     },
     {
       q: 'Снимаете на других островах?',
-      a: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe '
-        + 'eveniet ut et voluptates repudiandae sint et molestiae non recusandae.',
+      a: 'Да, летаю на Гомеру, Ла-Пальму, Гран-Канарию и Лансароте. Дорогу и, если '
+        + 'нужно, ночь считаю отдельно и говорю сумму заранее — сюрпризов в счёте не будет.',
     },
   ],
 };
 
 export const contact = {
   title: 'Связаться',
-  lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
-    + 'incididunt ut labore.',
+  lead: 'Напишите дату и место — отвечу в течение дня. Если ещё ничего не решено, '
+    + 'тоже пишите: подскажу, где смотреть площадки и сколько времени закладывать.',
   fields: [
-    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Dolor sit amet', autoComplete: 'name' },
-    { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+7 900 000-00-00', inputMode: 'tel', autoComplete: 'tel' },
-    { name: 'message', label: 'Пара слов о дне', type: 'textarea', required: false, placeholder: 'Incididunt ut labore et dolore magna aliqua', rows: 3 },
+    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Аня и Дима', autoComplete: 'name' },
+    { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+34 600 00 00 00', inputMode: 'tel', autoComplete: 'tel' },
+    { name: 'message', label: 'Пара слов о съёмке', type: 'textarea', required: false, placeholder: 'Дата, место, что снимаем — что уже известно', rows: 3 },
   ],
   submit: 'Отправить',
   sending: 'Отправляю…',
+  hint: 'Отвечу на почту или в мессенджер — как вам удобнее. Никому эти данные не передаю.',
+  error: 'Не отправилось — похоже, пропала связь. Попробуйте ещё раз или напишите мне в инстаграм.',
   success: {
     title: 'Заявка ушла',
-    text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad '
-      + 'minim veniam.',
+    text: 'Спасибо! Отвечу в течение дня, обычно быстрее. Если удобнее в мессенджере — '
+      + 'пишите в инстаграм, я там тоже есть.',
   },
 };
 
 export const footer = {
-  line: 'Свадебная фотография на Тенерифе',
+  line: 'Фотография на Тенерифе: пары, семьи, бизнес, мероприятия',
   legal: 'Политика конфиденциальности',
 };

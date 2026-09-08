@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import './Portfolio.css';
 import Button from '@/components/ui/Button.jsx';
@@ -10,8 +10,7 @@ import SectionHead from '@/components/ui/SectionHead.jsx';
 import { portfolio } from '@/data/content.js';
 import { cx } from '@/lib/cx.js';
 
-export default function Portfolio() {
-  const [category, setCategory] = useState('all');
+export default function Portfolio({ category, onCategory }) {
   const [visible, setVisible] = useState(portfolio.visible);
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -25,10 +24,11 @@ export default function Portfolio() {
   const shown = items.slice(0, visible);
   const rest = items.length - shown.length;
 
-  const selectCategory = (id) => {
-    setCategory(id);
+  // раздел могли переключить и отсюда, и карточкой в «Что снимаю» —
+  // в обоих случаях начинаем показ галереи заново
+  useEffect(() => {
     setVisible(portfolio.visible);
-  };
+  }, [category]);
 
   return (
     <Section id="portfolio" className="portfolio">
@@ -42,7 +42,7 @@ export default function Portfolio() {
             type="button"
             role="tab"
             aria-selected={category === item.id}
-            onClick={() => selectCategory(item.id)}
+            onClick={() => onCategory(item.id)}
           >
             {item.label}
           </button>

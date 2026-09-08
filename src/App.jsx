@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Header from '@/components/layout/Header.jsx';
 import Footer from '@/components/layout/Footer.jsx';
 import Intro from '@/components/layout/Intro.jsx';
@@ -13,6 +15,10 @@ import {
 } from '@/components/sections';
 
 export default function App() {
+  // раздел галереи держим здесь: его переключают и фильтры портфолио,
+  // и карточки в «Что снимаю»
+  const [gallery, setGallery] = useState('all');
+
   return (
     <>
       <Intro />
@@ -28,10 +34,10 @@ export default function App() {
         <About />
         <Ornament variant="quatrefoil" />
 
-        <Packages />
+        <Packages onPick={setGallery} />
         <Ornament variant="diamond" tinted />
 
-        <Portfolio />
+        <Portfolio category={gallery} onCategory={setGallery} />
         <Ornament variant="trefoil" />
 
         <Reviews />

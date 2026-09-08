@@ -58,7 +58,7 @@
 .hero__lead {
   max-width: 56ch;
   margin: 0;
-  color: rgba(250, 248, 245, 0.86);
+  color: var(--bg);
 }
 
 .hero__actions {

@@ -91,16 +91,13 @@ export default function Lightbox({ items, index, onClose, onChange }) {
       <figure className="lightbox__figure">
         <Photo
           {...item}
-          alt={item.alt || item.title}
+          alt=""
           priority
           sizes="100vw"
           className="lightbox__photo"
         />
         <figcaption className="lightbox__caption">
-          <span className="lightbox__title">{item.title}</span>
-          <span className="lightbox__meta">
-            {item.place} · {index + 1} из {items.length}
-          </span>
+          <span className="lightbox__meta">{index + 1} из {items.length}</span>
         </figcaption>
       </figure>
 

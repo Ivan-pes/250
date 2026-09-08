@@ -52,7 +52,7 @@ export default function Portfolio({ category, onCategory }) {
       <div className="gallery">
         {shown.map((item, i) => (
           <Reveal
-            key={`${item.title}-${item.place}`}
+            key={item.src}
             className="gallery__cell"
             delay={Math.min(i % portfolio.visible, 5) * 60}
           >
@@ -65,16 +65,12 @@ export default function Portfolio({ category, onCategory }) {
               <span className="card__frame">
                 <Photo
                   {...item}
-                  alt={item.title}
+                  alt=""
                   tone={i}
 
                   priority={i < 3}
                   sizes="(min-width: 1200px) 380px, (min-width: 1000px) 32vw, (min-width: 620px) 48vw, 100vw"
                 />
-              </span>
-              <span className="card__caption">
-                <span className="card__title">{item.title}</span>
-                <span className="card__place">{item.place}</span>
               </span>
             </button>
           </Reveal>

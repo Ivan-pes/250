@@ -49,20 +49,6 @@
 
 .card:hover .photo { transform: scale(1.03); }
 
-.card__caption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 14px;
-  padding-top: 12px;
-}
-
-.card__title { font-family: var(--font-display); font-size: 19px; }
-.card__place { font-size: 12px; color: var(--ink-45); }
-
-.card:hover .card__title { color: var(--accent); }
-
 .portfolio__more {
   display: flex;
   justify-content: center;

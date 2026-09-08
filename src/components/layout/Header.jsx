@@ -8,7 +8,6 @@ import { useBodyLock } from '@/hooks/useBodyLock.js';
 import { cx } from '@/lib/cx.js';
 
 const NAV_IDS = nav.map((item) => item.id);
-const telHref = `tel:${brand.phone.replace(/[^\d+]/g, '')}`;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -50,7 +49,6 @@ export default function Header() {
           </nav>
 
           <div className="header__side">
-            <a className="header__phone" href={telHref}>{brand.phone}</a>
             <a className="btn btn--primary header__cta" href="#contact">Связаться</a>
 
             <button
@@ -110,17 +108,6 @@ export default function Header() {
             <a className="btn btn--primary drawer__cta" href="#contact" onClick={() => setOpen(false)}>
               Связаться
             </a>
-
-            <dl className="drawer__contacts">
-              <div>
-                <dt>Телефон</dt>
-                <dd><a href={telHref}>{brand.phone}</a></dd>
-              </div>
-              <div>
-                <dt>Почта</dt>
-                <dd><a href={`mailto:${brand.email}`}>{brand.email}</a></dd>
-              </div>
-            </dl>
 
             <ul className="drawer__socials">
               {socials.map((item) => (

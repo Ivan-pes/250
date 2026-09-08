@@ -44,7 +44,6 @@
   color: rgba(250, 248, 245, 0.9);
 }
 
-.lightbox__title { font-family: var(--font-display); font-size: 22px; }
 .lightbox__meta { font-size: 13px; color: rgba(250, 248, 245, 0.55); }
 
 .lightbox__close,
@@ -93,6 +92,4 @@
   .lightbox__nav { grid-row: 2; }
   .lightbox__nav--prev { grid-column: 1; justify-self: end; }
   .lightbox__nav--next { grid-column: 2; justify-self: start; }
-
-  .lightbox__title { font-size: 20px; }
 }

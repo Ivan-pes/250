@@ -5,10 +5,10 @@ export const brand = {
   short: 'В',
   role: 'Проф фотограф',
   city: 'Тенерифе',
-  email: 'valentin@photo.es',
-  phone: '+34 612 345 678',
-  instagram: '@valentin.photo',
-  instagramUrl: 'https://instagram.com/valentin.photo',
+  instagram: '@frzxqr',
+  instagramUrl: 'https://instagram.com/frzxqr',
+  telegram: '@frzxqr',
+  telegramUrl: 'https://t.me/frzxqr',
   hours: 'Отвечаю в течение дня',
 };
 
@@ -21,7 +21,8 @@ export const nav = [
 ];
 
 export const socials = [
-  { label: 'Instagram', href: 'https://instagram.com/valentin.photo' },
+  { label: 'Instagram', href: 'https://instagram.com/frzxqr' },
+  { label: 'Telegram', href: 'https://t.me/frzxqr' },
 ];
 
 export const hero = {
@@ -40,7 +41,7 @@ export const hero = {
   photo: {
     src: '/images/hero.jpg',
     ratio: RATIO.portrait,
-    alt: 'Жених и невеста обнимаются в закатном свете, фата тянется по траве',
+    alt: '',
   },
 };
 
@@ -119,31 +120,31 @@ export const portfolio = {
   ],
 
   items: [
-    { title: 'Церемония у воды', place: 'Лос-Гигантес, 2025', cat: 'couples', src: '/images/couples-01.jpg', ratio: RATIO.portrait },
-    { title: 'Под фатой', place: 'Ла-Лагуна, 2025', cat: 'couples', src: '/images/couples-02.jpg', ratio: RATIO.portrait },
-    { title: 'Смех между кадрами', place: 'Санта-Крус, 2024', cat: 'couples', src: '/images/couples-03.jpg', ratio: RATIO.landscape },
-    { title: 'Первый танец', place: 'Коста-Адехе, 2025', cat: 'couples', src: '/images/couples-04.jpg', ratio: RATIO.portrait },
-    { title: 'Прогулка в Анаге', place: 'Анага, 2024', cat: 'couples', src: '/images/couples-05.jpg', ratio: RATIO.landscape },
-    { title: 'Танцы до утра', place: 'Ла-Оротава, 2024', cat: 'couples', src: '/images/couples-06.jpg', ratio: RATIO.landscape },
-    { title: 'Love story у Тейде', place: 'Тейде, 2025', cat: 'couples', src: '/images/couples-07.jpg', ratio: RATIO.portrait },
-    { title: 'Закат у воды', place: 'Эль-Медано, 2024', cat: 'couples', src: '/images/couples-08.jpg', ratio: RATIO.landscape },
-    { title: 'Утро невесты', place: 'Ла-Оротава, 2025', cat: 'couples', src: '/images/couples-09.jpg', ratio: RATIO.portrait },
-    { title: 'Сумерки на берегу', place: 'Эль-Медано, 2023', cat: 'couples', src: '/images/couples-10.jpg', ratio: RATIO.portrait },
+    { title: 'Церемония у воды', cat: 'couples', src: '/images/couples-01.jpg', ratio: RATIO.portrait },
+    { title: 'Под фатой', cat: 'couples', src: '/images/couples-02.jpg', ratio: RATIO.portrait },
+    { title: 'Смех между кадрами', cat: 'couples', src: '/images/couples-03.jpg', ratio: RATIO.landscape },
+    { title: 'Первый танец', cat: 'couples', src: '/images/couples-04.jpg', ratio: RATIO.portrait },
+    { title: 'Прогулка в Анаге', cat: 'couples', src: '/images/couples-05.jpg', ratio: RATIO.landscape },
+    { title: 'Танцы до утра', cat: 'couples', src: '/images/couples-06.jpg', ratio: RATIO.landscape },
+    { title: 'Love story в поле', cat: 'couples', src: '/images/couples-07.jpg', ratio: RATIO.portrait },
+    { title: 'Закат у воды', cat: 'couples', src: '/images/couples-08.jpg', ratio: RATIO.landscape },
+    { title: 'Утро невесты', cat: 'couples', src: '/images/couples-09.jpg', ratio: RATIO.portrait },
+    { title: 'Сумерки на берегу', cat: 'couples', src: '/images/couples-10.jpg', ratio: RATIO.portrait },
 
-    { title: 'Семья в поле', place: 'Ла-Лагуна, 2025', cat: 'family', src: '/images/family-01.jpg', ratio: RATIO.portrait },
-    { title: 'Воскресная прогулка', place: 'Ла-Оротава, 2024', cat: 'family', src: '/images/family-02.jpg', ratio: RATIO.portrait },
-    { title: 'Первое море', place: 'Пуэрто-де-ла-Крус, 2025', cat: 'family', src: '/images/family-03.jpg', ratio: RATIO.landscape },
-    { title: 'Все свои', place: 'Гарачико, 2024', cat: 'family', src: '/images/family-04.jpg', ratio: RATIO.landscape },
+    { title: 'Семья в поле', cat: 'family', src: '/images/family-01.jpg', ratio: RATIO.portrait },
+    { title: 'Воскресная прогулка', cat: 'family', src: '/images/family-02.jpg', ratio: RATIO.portrait },
+    { title: 'Первое море', cat: 'family', src: '/images/family-03.jpg', ratio: RATIO.landscape },
+    { title: 'Все свои', cat: 'family', src: '/images/family-04.jpg', ratio: RATIO.landscape },
 
-    { title: 'Портрет для сайта', place: 'Санта-Крус, 2025', cat: 'business', src: '/images/business-01.jpg', ratio: RATIO.portrait },
-    { title: 'Рабочий день', place: 'Санта-Крус, 2025', cat: 'business', src: '/images/business-02.jpg', ratio: RATIO.landscape },
-    { title: 'Интерьер ресторана', place: 'Пуэрто-де-ла-Крус, 2024', cat: 'business', src: '/images/business-03.jpg', ratio: RATIO.landscape },
-    { title: 'Предметная съёмка', place: 'Студия, 2025', cat: 'business', src: '/images/business-04.jpg', ratio: RATIO.landscape },
+    { title: 'Портрет для сайта', cat: 'business', src: '/images/business-01.jpg', ratio: RATIO.portrait },
+    { title: 'Рабочий день', cat: 'business', src: '/images/business-02.jpg', ratio: RATIO.landscape },
+    { title: 'Интерьер ресторана', cat: 'business', src: '/images/business-03.jpg', ratio: RATIO.landscape },
+    { title: 'Предметная съёмка', cat: 'business', src: '/images/business-04.jpg', ratio: RATIO.landscape },
 
-    { title: 'Юбилей компании', place: 'Санта-Крус, 2024', cat: 'events', src: '/images/events-01.jpg', ratio: RATIO.landscape },
-    { title: 'Конференция', place: 'Адехе, 2025', cat: 'events', src: '/images/events-02.jpg', ratio: RATIO.landscape },
-    { title: 'День рождения', place: 'Ла-Лагуна, 2024', cat: 'events', src: '/images/events-03.jpg', ratio: RATIO.portrait },
-    { title: 'Вечеринка на набережной', place: 'Лос-Кристианос, 2024', cat: 'events', src: '/images/events-04.jpg', ratio: RATIO.landscape },
+    { title: 'Юбилей компании', cat: 'events', src: '/images/events-01.jpg', ratio: RATIO.landscape },
+    { title: 'Конференция', cat: 'events', src: '/images/events-02.jpg', ratio: RATIO.landscape },
+    { title: 'День рождения', cat: 'events', src: '/images/events-03.jpg', ratio: RATIO.portrait },
+    { title: 'Вечеринка до утра', cat: 'events', src: '/images/events-04.jpg', ratio: RATIO.landscape },
   ],
   moreLabel: 'Показать ещё',
   visible: 6,
@@ -153,46 +154,41 @@ export const reviews = {
   title: 'Что говорят',
   items: [
     {
-      text: 'Мы боялись, что весь день будем позировать. В итоге Валентина почти не '
-        + 'замечали, а на фотографиях оказалось всё: и как я реву на клятвах, и как '
-        + 'дядя Витя танцует с тортом.',
-      author: 'Катя и Дима',
-      meta: 'Свадьба, июнь 2025',
+      text: 'Прилетели на неделю и решили сняться на второй день. Валентин увёз нас '
+        + 'на чёрный пляж к закату и ничего не выстраивал — просто ходил рядом и '
+        + 'разговаривал. На кадрах мы такие, какие есть, а не какие «получаемся».',
+      author: 'Катя',
+      meta: 'Парная съёмка, Тенерифе, июнь 2026',
     },
     {
-      text: 'Снимали портреты для сайта на всю команду за одно утро. Валентин привёз '
-        + 'свет, поставил всех за минуту и вытащил живые лица даже из тех, кто ненавидит '
-        + 'фотографироваться.',
-      author: 'Ирина, «Маре»',
-      meta: 'Съёмка для бизнеса, март 2025',
+      text: 'Снимались после помолвки, гуляли по центру два часа. Кадров вышло '
+        + 'столько, что до сих пор выбираем.',
+      author: 'Марина',
+      meta: 'Парная съёмка, София, сентябрь 2025',
     },
     {
-      text: 'Приехали расписываться вдвоём, без гостей. Валентин весь день был как '
-        + 'старый друг с камерой: подсказал, где спрятаться от ветра, и нашёл ту самую '
-        + 'бухту на закате.',
-      author: 'Марина и Сергей',
-      meta: 'Свадьба, сентябрь 2024',
+      text: 'Сняли портреты на всю команду за одно утро. Даже те, кто ненавидит '
+        + 'фотографироваться, вышли живыми.',
+      author: 'Ирина',
+      meta: 'Съёмка для бизнеса, София, март 2025',
     },
     {
-      text: 'С двумя детьми любая съёмка — это хаос. Валентин просто пошёл с нами гулять '
-        + 'и снимал этот хаос два часа. Такие мы и есть, и фотографии наконец про нас, '
-        + 'а не про красивые позы.',
-      author: 'Оля и Никита',
-      meta: 'Семейная съёмка, октябрь 2024',
+      text: 'Мы вместе десять лет и ни разу нормально не фотографировались — всё '
+        + 'телефон и вытянутая рука. Валентин за полтора часа сделал так, что мы '
+        + 'забыли про камеру. Половину кадров уже разослали родителям.',
+      author: 'Оля',
+      meta: 'Парная съёмка, София, октябрь 2024',
     },
     {
-      text: 'Конференция на четыреста человек, семь часов подряд. Черновые кадры были '
-        + 'у нас на следующее утро, полный архив — через неделю. Ни одного важного '
-        + 'спикера не пропустил.',
-      author: 'Андрей, оргкомитет',
-      meta: 'Мероприятие, май 2024',
+      text: 'Снимались вдвоём на скалах у Лос-Гигантеса. Ветер, брызги, никакой '
+        + 'постановки — и лучшие наши фотографии.',
+      author: 'Андрей',
+      meta: 'Парная съёмка, Тенерифе, май 2026',
     },
     {
-      text: 'Списывались полгода до свадьбы, и на каждый мой панический вопрос был '
-        + 'нормальный человеческий ответ. За день до — прислал расписание, чтобы мы '
-        + 'ничего не держали в голове.',
-      author: 'Вера и Максим',
-      meta: 'Свадьба, июль 2023',
+      text: 'Расписывались вдвоём, без гостей. Валентин нашёл нам бухту на закате.',
+      author: 'Вера',
+      meta: 'Свадьба вдвоём, Тенерифе, апрель 2025',
     },
   ],
 };
@@ -246,25 +242,8 @@ export const faq = {
 
 export const contact = {
   title: 'Связаться',
-  lead: 'Напишите дату и место — отвечу в течение дня. Если ещё ничего не решено, '
-    + 'тоже пишите: подскажу, где смотреть площадки и сколько времени закладывать.',
-  fields: [
-    { name: 'name', label: 'Как вас зовут', type: 'text', required: true, placeholder: 'Аня и Дима', autoComplete: 'name' },
-    { name: 'contact', label: 'Телефон или почта', type: 'text', required: true, placeholder: '+34 600 00 00 00', inputMode: 'tel', autoComplete: 'tel' },
-    { name: 'message', label: 'Пара слов о съёмке', type: 'textarea', required: false, placeholder: 'Дата, место, что снимаем — что уже известно', rows: 3 },
+  links: [
+    { label: 'Instagram', handle: brand.instagram, href: brand.instagramUrl },
+    { label: 'Telegram', handle: brand.telegram, href: brand.telegramUrl },
   ],
-  submit: 'Отправить',
-  sending: 'Отправляю…',
-  hint: 'Отвечу на почту или в мессенджер — как вам удобнее. Никому эти данные не передаю.',
-  error: 'Не отправилось — похоже, пропала связь. Попробуйте ещё раз или напишите мне в инстаграм.',
-  success: {
-    title: 'Заявка ушла',
-    text: 'Спасибо! Отвечу в течение дня, обычно быстрее. Если удобнее в мессенджере — '
-      + 'пишите в инстаграм, я там тоже есть.',
-  },
-};
-
-export const footer = {
-  line: 'Фотография на Тенерифе: пары, семьи, бизнес, мероприятия',
-  legal: 'Политика конфиденциальности',
 };

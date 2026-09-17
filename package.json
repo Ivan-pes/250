@@ -16,5 +16,5 @@
     "@vitejs/plugin-react": "^6.1.1",
     "vite": "^8.2.2"
   },
-  "description": "Сайт свадебного фотографа на React + Vite"
+  "description": "Photographer portfolio site built with React and Vite"
 }

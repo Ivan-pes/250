@@ -24,8 +24,6 @@ export default function Portfolio({ category, onCategory }) {
   const shown = items.slice(0, visible);
   const rest = items.length - shown.length;
 
-  // раздел могли переключить и отсюда, и карточкой в «Что снимаю» —
-  // в обоих случаях начинаем показ галереи заново
   useEffect(() => {
     setVisible(portfolio.visible);
   }, [category]);
@@ -67,7 +65,6 @@ export default function Portfolio({ category, onCategory }) {
                   {...item}
                   alt=""
                   tone={i}
-
                   priority={i < 3}
                   sizes="(min-width: 1200px) 380px, (min-width: 1000px) 32vw, (min-width: 620px) 48vw, 100vw"
                 />

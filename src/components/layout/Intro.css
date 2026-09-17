@@ -1,5 +1,3 @@
-/* Заставка: чистый кадр видео и тонкая рамка из линеек по краям. */
-
 .intro {
   position: fixed;
   inset: 0;
@@ -33,8 +31,6 @@
   transition: transform 0.65s var(--ease);
 }
 
-/* Видео */
-
 .intro__media {
   position: absolute;
   inset: 0;
@@ -65,7 +61,6 @@
 
 .intro__video.is-ready { opacity: 1; }
 
-/* Затемнение только у краёв, середина кадра остаётся чистой. */
 .intro__media::after {
   content: '';
   position: absolute;
@@ -75,9 +70,6 @@
     linear-gradient(to top, rgba(12, 11, 10, 0.5) 0%, transparent 26%);
 }
 
-/* Рамка */
-
-/* Рамка идёт во всю ширину экрана, как у mosaert, — только отступы по краям. */
 .intro__frame {
   position: relative;
   flex: 1;
@@ -106,7 +98,6 @@
   padding-bottom: clamp(16px, 2.6vh, 24px);
 }
 
-/* Две линейки: над верхней строкой и под нижней. */
 .intro__top::before,
 .intro__bottom::after {
   content: '';
@@ -119,8 +110,6 @@
 
 .intro__top::before { top: 0; }
 .intro__bottom::after { bottom: 0; }
-
-/* Подписи */
 
 .intro__logo,
 .intro__city,
@@ -148,8 +137,6 @@
 .intro__enter:hover,
 .intro__enter:focus-visible { opacity: 0.65; }
 
-/* Знак из общего набора орнаментов, только светлый и поменьше.
-   Свой показ по скроллу ему тут не нужен — появлением управляет заставка. */
 .intro .ornament {
   width: auto;
   padding-block: 0;

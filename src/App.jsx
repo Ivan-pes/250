@@ -15,8 +15,6 @@ import {
 } from '@/components/sections';
 
 export default function App() {
-  // раздел галереи держим здесь: его переключают и фильтры портфолио,
-  // и карточки в «Что снимаю»
   const [gallery, setGallery] = useState('all');
 
   return (

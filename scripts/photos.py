@@ -1,14 +1,8 @@
-"""Готовит фотографии сайта к работе.
+"""Prepare site photos: build `@sm` variants and regenerate src/data/photos.js.
 
-Запуск из корня проекта:
+Requires Pillow. Run from the project root:
 
     python3 scripts/photos.py
-
-Для каждого снимка в public/images скрипт делает уменьшенную копию `@sm`
-(её грузят телефоны) и пересобирает src/data/photos.js — карту крошечных
-размытых превью, которые видны, пока фото не загрузилось.
-
-Нужен Pillow: pip3 install pillow
 """
 
 import base64
@@ -21,12 +15,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMAGES = os.path.join(ROOT, 'public', 'images')
 PHOTOS_JS = os.path.join(ROOT, 'src', 'data', 'photos.js')
 
-SM_WIDTH = 760      # ширина уменьшенной копии
-BLUR_WIDTH = 20     # ширина превью-заглушки
+SM_WIDTH = 760
+BLUR_WIDTH = 20
 
 
 def originals():
-    """Снимки в папке, кроме уже готовых копий @sm."""
+    """Return the source photos, skipping already generated @sm copies."""
     names = [f for f in os.listdir(IMAGES) if f.endswith('.jpg') and '@sm' not in f]
     return sorted(names)
 

@@ -38,7 +38,6 @@
   text-wrap: pretty;
 }
 
-/* Карточка ведёт в галерею и включает там нужный раздел. */
 .package__more {
   margin-top: 14px;
   font-size: 13px;
